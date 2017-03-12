@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A6A336F41E754ACB00B842E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A336F31E754ACB00B842E6 /* AppDelegate.swift */; };
-		A6A336F61E754ACB00B842E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A336F51E754ACB00B842E6 /* ViewController.swift */; };
 		A6A336F91E754ACB00B842E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A336F71E754ACB00B842E6 /* Main.storyboard */; };
 		A6A336FB1E754ACB00B842E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6A336FA1E754ACB00B842E6 /* Assets.xcassets */; };
 		A6A336FE1E754ACB00B842E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A336FC1E754ACB00B842E6 /* LaunchScreen.storyboard */; };
+		A6A337081E754F1700B842E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A337061E754F1700B842E6 /* AppDelegate.swift */; };
+		A6A3370A1E754F2E00B842E6 /* BloodStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A337091E754F2E00B842E6 /* BloodStoreViewController.swift */; };
+		A6A3370C1E75505200B842E6 /* BloodStoreCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A3370B1E75505200B842E6 /* BloodStoreCellTableViewCell.swift */; };
+		A6A337101E7551B900B842E6 /* BloodInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A3370F1E7551B900B842E6 /* BloodInfo.swift */; };
+		A6A337131E75715400B842E6 /* SessionTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A337121E75715400B842E6 /* SessionTask.swift */; };
+		A6A337161E7576E300B842E6 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A337151E7576E300B842E6 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A6A336F01E754ACB00B842E6 /* BloodDonated.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BloodDonated.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6A336F31E754ACB00B842E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A6A336F51E754ACB00B842E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A6A336F81E754ACB00B842E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6A336FA1E754ACB00B842E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6A336FD1E754ACB00B842E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6A336FF1E754ACB00B842E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6A337061E754F1700B842E6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A6A337091E754F2E00B842E6 /* BloodStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodStoreViewController.swift; sourceTree = "<group>"; };
+		A6A3370B1E75505200B842E6 /* BloodStoreCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodStoreCellTableViewCell.swift; sourceTree = "<group>"; };
+		A6A3370F1E7551B900B842E6 /* BloodInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodInfo.swift; sourceTree = "<group>"; };
+		A6A337121E75715400B842E6 /* SessionTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTask.swift; sourceTree = "<group>"; };
+		A6A337151E7576E300B842E6 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,66 @@
 		A6A336F21E754ACB00B842E6 /* BloodDonated */ = {
 			isa = PBXGroup;
 			children = (
-				A6A336F31E754ACB00B842E6 /* AppDelegate.swift */,
-				A6A336F51E754ACB00B842E6 /* ViewController.swift */,
+				A6A337051E754F1700B842E6 /* Class */,
 				A6A336F71E754ACB00B842E6 /* Main.storyboard */,
 				A6A336FA1E754ACB00B842E6 /* Assets.xcassets */,
 				A6A336FC1E754ACB00B842E6 /* LaunchScreen.storyboard */,
 				A6A336FF1E754ACB00B842E6 /* Info.plist */,
 			);
 			path = BloodDonated;
+			sourceTree = "<group>";
+		};
+		A6A337051E754F1700B842E6 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				A6A337061E754F1700B842E6 /* AppDelegate.swift */,
+				A6A337111E75712A00B842E6 /* Session */,
+				A6A3370D1E7551A200B842E6 /* Data */,
+				A6A3370E1E7551A200B842E6 /* ThirdParty */,
+				A6A337071E754F1700B842E6 /* ViewControllers */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		A6A337071E754F1700B842E6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A6A337091E754F2E00B842E6 /* BloodStoreViewController.swift */,
+				A6A3370B1E75505200B842E6 /* BloodStoreCellTableViewCell.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A6A3370D1E7551A200B842E6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A6A3370F1E7551B900B842E6 /* BloodInfo.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		A6A3370E1E7551A200B842E6 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				A6A337141E7576E300B842E6 /* SwiftJson */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		A6A337111E75712A00B842E6 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				A6A337121E75715400B842E6 /* SessionTask.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		A6A337141E7576E300B842E6 /* SwiftJson */ = {
+			isa = PBXGroup;
+			children = (
+				A6A337151E7576E300B842E6 /* SwiftyJSON.swift */,
+			);
+			path = SwiftJson;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +196,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6A336F61E754ACB00B842E6 /* ViewController.swift in Sources */,
-				A6A336F41E754ACB00B842E6 /* AppDelegate.swift in Sources */,
+				A6A337081E754F1700B842E6 /* AppDelegate.swift in Sources */,
+				A6A3370C1E75505200B842E6 /* BloodStoreCellTableViewCell.swift in Sources */,
+				A6A337101E7551B900B842E6 /* BloodInfo.swift in Sources */,
+				A6A337161E7576E300B842E6 /* SwiftyJSON.swift in Sources */,
+				A6A337131E75715400B842E6 /* SessionTask.swift in Sources */,
+				A6A3370A1E754F2E00B842E6 /* BloodStoreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
