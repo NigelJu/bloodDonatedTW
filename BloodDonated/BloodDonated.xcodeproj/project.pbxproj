@@ -11,12 +11,22 @@
 		A642E9061F308BCE0002407D /* BloodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642E9051F308BCE0002407D /* BloodResponse.swift */; };
 		A642E90A1F30917B0002407D /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A642E9081F30917B0002407D /* AlamofireObjectMapper.framework */; };
 		A642E9111F30977D0002407D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A642E9071F30917B0002407D /* Alamofire.framework */; };
+		A642E9181F30CAE30002407D /* BloodStoreCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642E9161F30CAE30002407D /* BloodStoreCellTableViewCell.swift */; };
+		A642E9191F30CAE30002407D /* BloodStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642E9171F30CAE30002407D /* BloodStoreViewController.swift */; };
+		A642E91B1F30CC470002407D /* StorageTipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642E91A1F30CC470002407D /* StorageTipsViewController.swift */; };
+		A642E92B1F30CF560002407D /* NearInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642E92A1F30CF560002407D /* NearInfoViewController.swift */; };
+		A642E92E1F30D0C40002407D /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642E92D1F30D0C40002407D /* LocationInfo.swift */; };
+		A642E9361F30D61F0002407D /* Haoulain.json in Resources */ = {isa = PBXBuildFile; fileRef = A642E9301F30D61F0002407D /* Haoulain.json */; };
+		A642E9371F30D61F0002407D /* Hsinchu.json in Resources */ = {isa = PBXBuildFile; fileRef = A642E9311F30D61F0002407D /* Hsinchu.json */; };
+		A642E9381F30D61F0002407D /* Kaoushun.json in Resources */ = {isa = PBXBuildFile; fileRef = A642E9321F30D61F0002407D /* Kaoushun.json */; };
+		A642E9391F30D61F0002407D /* Taichung.json in Resources */ = {isa = PBXBuildFile; fileRef = A642E9331F30D61F0002407D /* Taichung.json */; };
+		A642E93A1F30D61F0002407D /* Tainan.json in Resources */ = {isa = PBXBuildFile; fileRef = A642E9341F30D61F0002407D /* Tainan.json */; };
+		A642E93B1F30D61F0002407D /* Taipei.json in Resources */ = {isa = PBXBuildFile; fileRef = A642E9351F30D61F0002407D /* Taipei.json */; };
+		A642E93E1F30D64F0002407D /* LocalLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642E93D1F30D64F0002407D /* LocalLocationManager.swift */; };
 		A6A336F91E754ACB00B842E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A336F71E754ACB00B842E6 /* Main.storyboard */; };
 		A6A336FB1E754ACB00B842E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6A336FA1E754ACB00B842E6 /* Assets.xcassets */; };
 		A6A336FE1E754ACB00B842E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A336FC1E754ACB00B842E6 /* LaunchScreen.storyboard */; };
 		A6A337081E754F1700B842E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A337061E754F1700B842E6 /* AppDelegate.swift */; };
-		A6A3370A1E754F2E00B842E6 /* BloodStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A337091E754F2E00B842E6 /* BloodStoreViewController.swift */; };
-		A6A3370C1E75505200B842E6 /* BloodStoreCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A3370B1E75505200B842E6 /* BloodStoreCellTableViewCell.swift */; };
 		A6A337101E7551B900B842E6 /* BloodInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A3370F1E7551B900B842E6 /* BloodInfo.swift */; };
 		A6A337131E75715400B842E6 /* SessionTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A337121E75715400B842E6 /* SessionTask.swift */; };
 		A6A337161E7576E300B842E6 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A337151E7576E300B842E6 /* SwiftyJSON.swift */; };
@@ -30,14 +40,24 @@
 		A642E9071F30917B0002407D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		A642E9081F30917B0002407D /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
 		A642E9131F30BB670002407D /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = "<group>"; };
+		A642E9161F30CAE30002407D /* BloodStoreCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodStoreCellTableViewCell.swift; sourceTree = "<group>"; };
+		A642E9171F30CAE30002407D /* BloodStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodStoreViewController.swift; sourceTree = "<group>"; };
+		A642E91A1F30CC470002407D /* StorageTipsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageTipsViewController.swift; sourceTree = "<group>"; };
+		A642E92A1F30CF560002407D /* NearInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearInfoViewController.swift; sourceTree = "<group>"; };
+		A642E92D1F30D0C40002407D /* LocationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInfo.swift; sourceTree = "<group>"; };
+		A642E9301F30D61F0002407D /* Haoulain.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Haoulain.json; sourceTree = "<group>"; };
+		A642E9311F30D61F0002407D /* Hsinchu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Hsinchu.json; sourceTree = "<group>"; };
+		A642E9321F30D61F0002407D /* Kaoushun.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Kaoushun.json; sourceTree = "<group>"; };
+		A642E9331F30D61F0002407D /* Taichung.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Taichung.json; sourceTree = "<group>"; };
+		A642E9341F30D61F0002407D /* Tainan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Tainan.json; sourceTree = "<group>"; };
+		A642E9351F30D61F0002407D /* Taipei.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Taipei.json; sourceTree = "<group>"; };
+		A642E93D1F30D64F0002407D /* LocalLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalLocationManager.swift; sourceTree = "<group>"; };
 		A6A336F01E754ACB00B842E6 /* BloodDonated.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BloodDonated.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A336F81E754ACB00B842E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6A336FA1E754ACB00B842E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6A336FD1E754ACB00B842E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6A336FF1E754ACB00B842E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6A337061E754F1700B842E6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A6A337091E754F2E00B842E6 /* BloodStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodStoreViewController.swift; sourceTree = "<group>"; };
-		A6A3370B1E75505200B842E6 /* BloodStoreCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodStoreCellTableViewCell.swift; sourceTree = "<group>"; };
 		A6A3370F1E7551B900B842E6 /* BloodInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodInfo.swift; sourceTree = "<group>"; };
 		A6A337121E75715400B842E6 /* SessionTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTask.swift; sourceTree = "<group>"; };
 		A6A337151E7576E300B842E6 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
@@ -78,6 +98,53 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		A642E9151F30CAE30002407D /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				A642E9161F30CAE30002407D /* BloodStoreCellTableViewCell.swift */,
+				A642E9171F30CAE30002407D /* BloodStoreViewController.swift */,
+				A642E91A1F30CC470002407D /* StorageTipsViewController.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		A642E9291F30CF3E0002407D /* NearInfo */ = {
+			isa = PBXGroup;
+			children = (
+				A642E92A1F30CF560002407D /* NearInfoViewController.swift */,
+			);
+			path = NearInfo;
+			sourceTree = "<group>";
+		};
+		A642E92C1F30D0B20002407D /* LocalFile */ = {
+			isa = PBXGroup;
+			children = (
+				A642E92D1F30D0C40002407D /* LocationInfo.swift */,
+			);
+			path = LocalFile;
+			sourceTree = "<group>";
+		};
+		A642E92F1F30D61F0002407D /* LocalFile */ = {
+			isa = PBXGroup;
+			children = (
+				A642E9301F30D61F0002407D /* Haoulain.json */,
+				A642E9311F30D61F0002407D /* Hsinchu.json */,
+				A642E9321F30D61F0002407D /* Kaoushun.json */,
+				A642E9331F30D61F0002407D /* Taichung.json */,
+				A642E9341F30D61F0002407D /* Tainan.json */,
+				A642E9351F30D61F0002407D /* Taipei.json */,
+			);
+			path = LocalFile;
+			sourceTree = "<group>";
+		};
+		A642E93C1F30D6320002407D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A642E93D1F30D64F0002407D /* LocalLocationManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		A6A336E71E754ACA00B842E6 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +165,7 @@
 		A6A336F21E754ACB00B842E6 /* BloodDonated */ = {
 			isa = PBXGroup;
 			children = (
+				A642E92F1F30D61F0002407D /* LocalFile */,
 				A6A337051E754F1700B842E6 /* Class */,
 				A6A336F71E754ACB00B842E6 /* Main.storyboard */,
 				A6A336FA1E754ACB00B842E6 /* Assets.xcassets */,
@@ -111,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				A6A337061E754F1700B842E6 /* AppDelegate.swift */,
+				A642E93C1F30D6320002407D /* Manager */,
 				A6A337111E75712A00B842E6 /* Session */,
 				A6A3370D1E7551A200B842E6 /* Data */,
 				A6A3370E1E7551A200B842E6 /* ThirdParty */,
@@ -122,8 +191,8 @@
 		A6A337071E754F1700B842E6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				A6A337091E754F2E00B842E6 /* BloodStoreViewController.swift */,
-				A6A3370B1E75505200B842E6 /* BloodStoreCellTableViewCell.swift */,
+				A642E9291F30CF3E0002407D /* NearInfo */,
+				A642E9151F30CAE30002407D /* Storage */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -131,6 +200,7 @@
 		A6A3370D1E7551A200B842E6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				A642E92C1F30D0B20002407D /* LocalFile */,
 				A642E9041F308BBA0002407D /* API */,
 				A6A3370F1E7551B900B842E6 /* BloodInfo.swift */,
 			);
@@ -194,6 +264,7 @@
 				TargetAttributes = {
 					A6A336EF1E754ACA00B842E6 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 7G88R6F9RQ;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -221,8 +292,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A642E9371F30D61F0002407D /* Hsinchu.json in Resources */,
+				A642E9381F30D61F0002407D /* Kaoushun.json in Resources */,
 				A6A336FE1E754ACB00B842E6 /* LaunchScreen.storyboard in Resources */,
 				A6A336FB1E754ACB00B842E6 /* Assets.xcassets in Resources */,
+				A642E93B1F30D61F0002407D /* Taipei.json in Resources */,
+				A642E9361F30D61F0002407D /* Haoulain.json in Resources */,
+				A642E9391F30D61F0002407D /* Taichung.json in Resources */,
+				A642E93A1F30D61F0002407D /* Tainan.json in Resources */,
 				A6A336F91E754ACB00B842E6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,12 +331,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6A337081E754F1700B842E6 /* AppDelegate.swift in Sources */,
-				A6A3370C1E75505200B842E6 /* BloodStoreCellTableViewCell.swift in Sources */,
 				A6A337101E7551B900B842E6 /* BloodInfo.swift in Sources */,
+				A642E9191F30CAE30002407D /* BloodStoreViewController.swift in Sources */,
 				A6A337161E7576E300B842E6 /* SwiftyJSON.swift in Sources */,
 				A642E9061F308BCE0002407D /* BloodResponse.swift in Sources */,
+				A642E9181F30CAE30002407D /* BloodStoreCellTableViewCell.swift in Sources */,
+				A642E92B1F30CF560002407D /* NearInfoViewController.swift in Sources */,
+				A642E93E1F30D64F0002407D /* LocalLocationManager.swift in Sources */,
+				A642E91B1F30CC470002407D /* StorageTipsViewController.swift in Sources */,
+				A642E92E1F30D0C40002407D /* LocationInfo.swift in Sources */,
 				A6A337131E75715400B842E6 /* SessionTask.swift in Sources */,
-				A6A3370A1E754F2E00B842E6 /* BloodStoreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +463,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7G88R6F9RQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -398,6 +480,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7G88R6F9RQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
