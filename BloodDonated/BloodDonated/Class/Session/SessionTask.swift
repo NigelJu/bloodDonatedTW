@@ -41,25 +41,11 @@ class SessionTask {
     }
     */
     
-    func fetchBloodInfo(){
-    
+    func fetchBloodInfo() {
         Alamofire.request(SERVER_HTTP).responseObject { (response: DataResponse<BloodResponse>) in
-            
             let bloodResponse = response.result.value
             print(bloodResponse?.tainan?.typeA)
-            
-//            if let threeDayForecast = weatherResponse?.threeDayForecast {
-//                for forecast in threeDayForecast {
-//                    print(forecast.day)
-//                    print(forecast.temperature)
-//                }
-//            }
-            
-
         }
-        
-        
-        
-        
+        print("...")
     }
 }

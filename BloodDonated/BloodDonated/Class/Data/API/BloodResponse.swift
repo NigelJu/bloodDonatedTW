@@ -61,6 +61,20 @@ enum bloodStorage: String {
     case medium = "medium"
     case full = "full"
     case low = "low"
+    
+    func imageName() -> String {
+        switch self {
+        case .medium:
+            return "BloodMed"
+        case .full:
+            return "BloodFull"
+        case .low:
+            return "BloodLow"
+     
+            
+        }
+        
+    }
 }
 
 class bloodStorage2: Mappable {
@@ -78,6 +92,6 @@ class bloodStorage2: Mappable {
     func mapping(map: Map) {
         medium          <- map["medium"]
         full            <- map["full"]
-        low             <- map["StorageAB"]
+        low             <- map["low"]
     }
 }

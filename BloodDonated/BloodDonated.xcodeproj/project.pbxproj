@@ -29,6 +29,7 @@
 		A642E9051F308BCE0002407D /* BloodResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodResponse.swift; sourceTree = "<group>"; };
 		A642E9071F30917B0002407D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		A642E9081F30917B0002407D /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
+		A642E9131F30BB670002407D /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = "<group>"; };
 		A6A336F01E754ACB00B842E6 /* BloodDonated.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BloodDonated.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A336F81E754ACB00B842E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6A336FA1E754ACB00B842E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,6 +60,7 @@
 		A642E8F51F3088410002407D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A642E9131F30BB670002407D /* MBProgressHUD.framework */,
 				A642E9071F30917B0002407D /* Alamofire.framework */,
 				A642E9081F30917B0002407D /* AlamofireObjectMapper.framework */,
 				A642E9021F308B130002407D /* ObjectMapper.framework */,
