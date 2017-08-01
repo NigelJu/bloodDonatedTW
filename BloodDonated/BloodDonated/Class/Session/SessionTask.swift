@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import AlamofireObjectMapper
+import Alamofire
 
 class SessionTask {
-
-    let bloodOpenDataWebSite = "http://nigelju.github.io/blood/blood.json"
-    
+    //
+    // http://nigelju.github.io/blood/blood.json
+    let SERVER_HTTP = "https://g0v.github.io/blood/blood.json"
+    /*
     func fetchBloodInfo() {
         if let url = URL(string: bloodOpenDataWebSite) {
             let session = URLSession.shared
@@ -36,7 +39,27 @@ class SessionTask {
         
         
     }
+    */
     
+    func fetchBloodInfo(){
     
-    
+        Alamofire.request(SERVER_HTTP).responseObject { (response: DataResponse<BloodResponse>) in
+            
+            let bloodResponse = response.result.value
+            print(bloodResponse?.tainan?.typeA)
+            
+//            if let threeDayForecast = weatherResponse?.threeDayForecast {
+//                for forecast in threeDayForecast {
+//                    print(forecast.day)
+//                    print(forecast.temperature)
+//                }
+//            }
+            
+
+        }
+        
+        
+        
+        
+    }
 }

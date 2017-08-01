@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A642E9031F308B130002407D /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A642E9021F308B130002407D /* ObjectMapper.framework */; };
+		A642E9061F308BCE0002407D /* BloodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642E9051F308BCE0002407D /* BloodResponse.swift */; };
+		A642E90A1F30917B0002407D /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A642E9081F30917B0002407D /* AlamofireObjectMapper.framework */; };
+		A642E9111F30977D0002407D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A642E9071F30917B0002407D /* Alamofire.framework */; };
 		A6A336F91E754ACB00B842E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A336F71E754ACB00B842E6 /* Main.storyboard */; };
 		A6A336FB1E754ACB00B842E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6A336FA1E754ACB00B842E6 /* Assets.xcassets */; };
 		A6A336FE1E754ACB00B842E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A336FC1E754ACB00B842E6 /* LaunchScreen.storyboard */; };
@@ -19,6 +23,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A642E8F61F3088420002407D /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = ../Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		A642E8FE1F30895C0002407D /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = ../Carthage/Build/watchOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		A642E9021F308B130002407D /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		A642E9051F308BCE0002407D /* BloodResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodResponse.swift; sourceTree = "<group>"; };
+		A642E9071F30917B0002407D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		A642E9081F30917B0002407D /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
 		A6A336F01E754ACB00B842E6 /* BloodDonated.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BloodDonated.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A336F81E754ACB00B842E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6A336FA1E754ACB00B842E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -37,17 +47,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A642E9111F30977D0002407D /* Alamofire.framework in Frameworks */,
+				A642E90A1F30917B0002407D /* AlamofireObjectMapper.framework in Frameworks */,
+				A642E9031F308B130002407D /* ObjectMapper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A642E8F51F3088410002407D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A642E9071F30917B0002407D /* Alamofire.framework */,
+				A642E9081F30917B0002407D /* AlamofireObjectMapper.framework */,
+				A642E9021F308B130002407D /* ObjectMapper.framework */,
+				A642E8FE1F30895C0002407D /* ObjectMapper.framework */,
+				A642E8F61F3088420002407D /* ObjectMapper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A642E9041F308BBA0002407D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A642E9051F308BCE0002407D /* BloodResponse.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		A6A336E71E754ACA00B842E6 = {
 			isa = PBXGroup;
 			children = (
 				A6A336F21E754ACB00B842E6 /* BloodDonated */,
 				A6A336F11E754ACB00B842E6 /* Products */,
+				A642E8F51F3088410002407D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +129,7 @@
 		A6A3370D1E7551A200B842E6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				A642E9041F308BBA0002407D /* API */,
 				A6A3370F1E7551B900B842E6 /* BloodInfo.swift */,
 			);
 			path = Data;
@@ -134,6 +169,7 @@
 				A6A336EC1E754ACA00B842E6 /* Sources */,
 				A6A336ED1E754ACA00B842E6 /* Frameworks */,
 				A6A336EE1E754ACA00B842E6 /* Resources */,
+				A642E8F81F3088670002407D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -191,6 +227,25 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A642E8F81F3088670002407D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AlamofireObjectMapper.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A6A336EC1E754ACA00B842E6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -200,6 +255,7 @@
 				A6A3370C1E75505200B842E6 /* BloodStoreCellTableViewCell.swift in Sources */,
 				A6A337101E7551B900B842E6 /* BloodInfo.swift in Sources */,
 				A6A337161E7576E300B842E6 /* SwiftyJSON.swift in Sources */,
+				A642E9061F308BCE0002407D /* BloodResponse.swift in Sources */,
 				A6A337131E75715400B842E6 /* SessionTask.swift in Sources */,
 				A6A3370A1E754F2E00B842E6 /* BloodStoreViewController.swift in Sources */,
 			);
@@ -324,6 +380,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BloodDonated/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nigel.BloodDonated;
@@ -336,6 +396,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BloodDonated/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nigel.BloodDonated;
@@ -363,6 +427,7 @@
 				A6A337041E754ACB00B842E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
