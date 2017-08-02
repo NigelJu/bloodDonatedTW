@@ -11,56 +11,101 @@ import MapKit
 import CoreLocation
 
 fileprivate class NearLocationInfo {
-    var taipeiInfos: [LocationInfo]?
-    var hsinchuInfos: [LocationInfo]?
-    var kaoushunInfos: [LocationInfo]?
-    var taichunInfos: [LocationInfo]?
-    var tainanInfos: [LocationInfo]?
-    var haoulanInfos: [LocationInfo]?
+    var allAreaInfos = [[LocationInfo]?]()
 }
+
+fileprivate enum DistanceInfo: Int {
+    case threeKM
+    case fiveKM
+    case none
+    
+    func meterDistance() -> Double {
+        
+        let KM_DISTANCE: Double = 1000
+        
+        switch self {
+        case .threeKM:
+            return 3 * KM_DISTANCE
+        case .fiveKM:
+            return 5 * KM_DISTANCE
+        case .none:
+            return 400 * KM_DISTANCE
+        }
+        
+    }
+}
+
+fileprivate enum AreaInfo: Int {
+    case taipei
+    case hsinchu
+    case taichung
+    case tainan
+    case kaoushun
+    case haoulain
+    
+    func fileName() -> String {
+        switch self {
+        case .taipei:
+            return "Taipei"
+        case .hsinchu:
+            return "Hsinchu"
+        case .taichung:
+            return "Taichung"
+        case .tainan:
+            return "Tainan"
+        case .kaoushun:
+            return "Kaoushun"
+        case .haoulain:
+            return "Haoulain"
+        }
+        
+    }
+}
+
 
 class NearInfoViewController: UIViewController {
 
     fileprivate let locationManager = CLLocationManager()
     fileprivate let localInfoManager = LocalLocationManager()
     
+    @IBOutlet weak var distanceSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var areaSegmentedControl: UISegmentedControl!
+    
     fileprivate var localInfos = NearLocationInfo()
     
     @IBOutlet weak var mapView: MKMapView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         locationManager.requestWhenInUseAuthorization()
         
         
-        localInfos.taipeiInfos = localInfoManager.locationInfo(withFileName: "Taipei")
-        localInfos.hsinchuInfos = localInfoManager.locationInfo(withFileName: "Hsinchu")
-        localInfos.kaoushunInfos = localInfoManager.locationInfo(withFileName: "Kaoushun")
-        localInfos.taichunInfos = localInfoManager.locationInfo(withFileName: "Taichung")
-        localInfos.tainanInfos = localInfoManager.locationInfo(withFileName: "Tainan")
-        localInfos.haoulanInfos = localInfoManager.locationInfo(withFileName: "Haoulain")
+        localInfos.allAreaInfos.append(localInfoManager.locationInfo(withFileName: AreaInfo.taipei.fileName()))
+        localInfos.allAreaInfos.append(localInfoManager.locationInfo(withFileName: "Hsinchu"))
+        localInfos.allAreaInfos.append(localInfoManager.locationInfo(withFileName: "Taichung"))
+        localInfos.allAreaInfos.append(localInfoManager.locationInfo(withFileName: "Tainan"))
+        localInfos.allAreaInfos.append(localInfoManager.locationInfo(withFileName: "Kaoushun"))
+        localInfos.allAreaInfos.append(localInfoManager.locationInfo(withFileName: "Haoulain"))
         
-        setNearestAnnotation(withDistanceKM: 5)
         
-      
+        guard let userLocation = locationManager.location,
+            let distanceInfo = DistanceInfo.init(rawValue: distanceSegmentedControl.selectedSegmentIndex)
+            else { return }
         
-//        for taipeiInfo in localInfos.taipeiInfos ?? [] {
-//            if let geoCode = taipeiInfo.geoCode {
-//                let geoCodes = geoCode.components(separatedBy: ",")
-//                guard let lat = Double(geoCodes[0]),
-//                    let lng = Double(geoCodes[1])
-//                    else { continue }
-//                let coodinate = CLLocationCoordinate2DMake(lat, lng)
-//                let taipeiAnnotation = MKPointAnnotation()
-//
-//                taipeiAnnotation.coordinate = coodinate
-//                taipeiAnnotation.title = taipeiInfo.name
-//                mapView.addAnnotation(taipeiAnnotation)
-//            }
-//           
-//        }
-
+        if let nearInfos = nearAreaLocationInfo(withDistanceKM: 5) {
+            setAnnotation(withLocalInfos: nearInfos)
+            mapView.showAnnotations(nearAnnotation(currentLocationCoordinate: userLocation, withDistanceMeter: distanceInfo.meterDistance()), animated: true)
+        }else{
+            updateAnnotation()
+        }
+        
+        
+        
+        
+        
+        
         
         
     }
@@ -72,38 +117,84 @@ class NearInfoViewController: UIViewController {
             self.present(alertController, animated: true, completion: nil)
         }
     }
-    @IBAction func distanceSegmentControlValueChanged(_ sender: Any) {
+    @IBAction func segmentControlValueChanged(_ sender: Any) {
+        updateAnnotation()
     }
     
-    @IBAction func areaSegmentControlValueChanged(_ sender: Any) {
-    }
+  
     
     
 }
 
 // MARK:- MKMapViewDelegate
 extension NearInfoViewController: MKMapViewDelegate {
-
-
+    
+    
 }
 
 // MARK:- privateFunction
 fileprivate extension NearInfoViewController {
     
-    func findNearLocationInfo(withDistanceKM km: Int) -> [LocationInfo]? {
+    func updateAnnotation() {
+        guard let distanceInfo = DistanceInfo.init(rawValue: distanceSegmentedControl.selectedSegmentIndex),
+            let didSelectInfos = localInfos.allAreaInfos[areaSegmentedControl.selectedSegmentIndex],
+            let userLocation = locationManager.location
+            else { return }
         
+        setAnnotation(withLocalInfos: didSelectInfos)
+        mapView.showAnnotations(nearAnnotation(currentLocationCoordinate: userLocation, withDistanceMeter: distanceInfo.meterDistance()), animated: true)
+
+    }
+    
+    
+    func nearAnnotation(currentLocationCoordinate coordinate: CLLocation, withDistanceMeter meter: Double?) -> [MKAnnotation] {
+        
+        if let meter = meter {
+            return mapView.annotations.filter { (anntation) -> Bool in
+                return CLLocation(latitude: anntation.coordinate.latitude,
+                                  longitude: anntation.coordinate.longitude)
+                    .distance(from: coordinate) < meter
+            }
+            
+            
+        }
+        return mapView.annotations
+    }
+    
+    func nearAreaLocationInfo(withDistanceKM km: Int) -> [LocationInfo]? {
+        for areaInfo in localInfos.allAreaInfos {
+            for localInfo in areaInfo ?? [] {
+                if isNear(withLocationInfo: localInfo, DistanceKM: km) {
+                    return areaInfo
+                }
+            }
+        }
         return nil
     }
     
-    func setNearestAnnotation(withDistanceKM km: Int) {
-        if let hsinchuInfos = localInfos.hsinchuInfos {
-            for localInfo in hsinchuInfos
-                where isNear(withLocationInfo: localInfo, DistanceKM: km) {
-                    
-                 
-                   
-            }
+    func setAnnotation(withLocalInfos areaInfos: [LocationInfo]) {
+        
+        mapView.removeAnnotations(mapView.annotations)
+        
+        for areaInfo in areaInfos {
+            guard let geoCode = areaInfo.geoCode else { continue }
+            let geoCodes = geoCode.components(separatedBy: ",")
+            guard let lat = Double(geoCodes[0]),
+                let lng = Double(geoCodes[1])
+                else { continue }
+            let coodinate = CLLocationCoordinate2DMake(lat, lng)
+            let taipeiAnnotation = MKPointAnnotation()
+            
+            taipeiAnnotation.coordinate = coodinate
+            taipeiAnnotation.title = areaInfo.name
+            mapView.addAnnotation(taipeiAnnotation)
+            
+            
         }
+        
+        
+        
+        
     }
     
     func isNear(withLocationInfo localInfo: LocationInfo, DistanceKM km: Int) -> Bool {
