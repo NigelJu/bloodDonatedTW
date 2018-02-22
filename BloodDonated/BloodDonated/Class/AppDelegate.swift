@@ -31,10 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        print("applicationWillEnterForeground")
+        refreshSettingLocation()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        print("applicationDidBecomeActive")
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -44,3 +47,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+private extension AppDelegate {
+    // 更改位置權限的時候, user直接切換app的話, 正常生命週期會不來及更新
+    // 一喚醒app就檢查
+    func refreshSettingLocation() {
+        
+        guard let settingVC = UIApplication.shared.currentViewController() as? SettingTableViewController else { return }
+        settingVC.tableView.reloadData()
+        
+    }
+}
