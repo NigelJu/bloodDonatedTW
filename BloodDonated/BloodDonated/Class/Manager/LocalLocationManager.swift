@@ -17,8 +17,8 @@ class LocalLocationManager {
             let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
            
             if let data = data {
-                let jsonObj = JSON(data: data)
-                return Mapper<LocationInfo>().mapArray(JSONString: jsonObj.description)
+                let jsonObj = try? JSON(data: data)
+                return Mapper<LocationInfo>().mapArray(JSONString: jsonObj?.description ?? "")
             }
         }
         return nil

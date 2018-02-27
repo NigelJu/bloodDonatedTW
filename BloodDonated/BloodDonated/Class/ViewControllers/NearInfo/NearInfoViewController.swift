@@ -68,22 +68,32 @@ class NearInfoViewController: UIViewController {
     fileprivate let locationManager = CLLocationManager()
     fileprivate let localInfoManager = LocalLocationManager()
     
-    @IBOutlet weak var distanceSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var areaSegmentedControl: UISegmentedControl!
+    fileprivate var shouldRequestLocationAuthorization = true
+    
+    fileprivate var nearInfoTableVC: NearInfoTableViewController?
+   
+    @IBOutlet weak var tableContainerView: UIView!
     
     fileprivate var localInfos = NearLocationInfo()
     
+    @IBOutlet weak var distanceSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var areaSegmentedControl: UISegmentedControl!
     @IBOutlet weak var mapView: MKMapView!
     
     
+    // MARK:- LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.delegate = self
         
         locationManager.requestWhenInUseAuthorization()
         
+       
         
+        // 取得位置資訊
         localInfos.allAreaInfos.append(localInfoManager.locationInfo(withFileName: AreaInfo.taipei.fileName()))
-        localInfos.allAreaInfos.append(localInfoManager.locationInfo(withFileName: "Hsinchu"))
+        localInfos.allAreaInfos.append(localInfoManager.locationInfo(withFileName: AreaInfo.hsinchu.fileName()))
         localInfos.allAreaInfos.append(localInfoManager.locationInfo(withFileName: "Taichung"))
         localInfos.allAreaInfos.append(localInfoManager.locationInfo(withFileName: "Tainan"))
         localInfos.allAreaInfos.append(localInfoManager.locationInfo(withFileName: "Kaoushun"))
@@ -103,37 +113,92 @@ class NearInfoViewController: UIViewController {
         
         
         
-        
-        
-        
-        
-        
+        for case let vc as NearInfoTableViewController in self.childViewControllers  {
+            nearInfoTableVC = vc
+            nearInfoTableVC?.delegate = self
+        }
+
     }
     
+  
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidLoad()
-        if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
-            let alertController = UIAlertController(title: "警告", message: "無定位權限, 請至設定中開啟", preferredStyle: .alert)
-            self.present(alertController, animated: true, completion: nil)
-        }
+        super.viewDidAppear(animated)
+        requestLocationAuthorization(status: CLLocationManager.authorizationStatus())
+
     }
+    
+    
+    // MARK:- IBAction
     @IBAction func segmentControlValueChanged(_ sender: Any) {
         updateAnnotation()
     }
     
-  
+    @IBAction func CenterButtonDidSelect(_ sender: Any) {
+        let userLocation = mapView.userLocation.coordinate
+        setMapViewCenter(at: userLocation)
+    }
+    
+    @IBAction func ListButtonDIdSelect(_ sender: Any) {
+        self.tabBarController?.tabBar.isHidden = !(self.tabBarController?.tabBar.isHidden ?? true)
+        self.tableContainerView.isHidden = !self.tableContainerView.isHidden 
+        
+        
+    }
+    
     
     
 }
+
+// MARK:- NearInfoTableViewControllerDelegate
+extension NearInfoViewController: NearInfoTableViewControllerDelegate {
+    func cellDidSelect(cellInfo: Any) {
+        print(cellInfo)
+        performSegue(withIdentifier: "infoDetail", sender: nil)
+    }
+    
+    
+    
+}
+
 
 // MARK:- MKMapViewDelegate
 extension NearInfoViewController: MKMapViewDelegate {
-    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        print(view.annotation?.title)
+    }
     
 }
 
+// MARK:- CLLocationManagerDelegate
+extension NearInfoViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        requestLocationAuthorization(status: status)
+    }
+    
+}
+
+
+
 // MARK:- privateFunction
 fileprivate extension NearInfoViewController {
+    
+    func setMapViewCenter(at coordinate: CLLocationCoordinate2D) {
+        let fixedCenter = CLLocationCoordinate2D(latitude: coordinate.latitude , longitude: coordinate.longitude)
+        mapView.setCenter(fixedCenter, animated: true)
+    }
+    
+    
+    func requestLocationAuthorization(status: CLAuthorizationStatus) {
+        if status != .authorizedWhenInUse {
+            let alertController = UIAlertController(title: "警告", message: "無定位權限, 請至設定中開啟", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "好", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        }else if status == .authorizedWhenInUse {
+            shouldRequestLocationAuthorization = false
+        }
+    }
+    
     
     func updateAnnotation() {
         guard let distanceInfo = DistanceInfo.init(rawValue: distanceSegmentedControl.selectedSegmentIndex),
@@ -141,9 +206,11 @@ fileprivate extension NearInfoViewController {
             let userLocation = locationManager.location
             else { return }
         
+        
         setAnnotation(withLocalInfos: didSelectInfos)
+        
+        
         mapView.showAnnotations(nearAnnotation(currentLocationCoordinate: userLocation, withDistanceMeter: distanceInfo.meterDistance()), animated: true)
-
     }
     
     
@@ -183,11 +250,11 @@ fileprivate extension NearInfoViewController {
                 let lng = Double(geoCodes[1])
                 else { continue }
             let coodinate = CLLocationCoordinate2DMake(lat, lng)
-            let taipeiAnnotation = MKPointAnnotation()
+            let annotation = MKPointAnnotation()
             
-            taipeiAnnotation.coordinate = coodinate
-            taipeiAnnotation.title = areaInfo.name
-            mapView.addAnnotation(taipeiAnnotation)
+            annotation.coordinate = coodinate
+            annotation.title = areaInfo.name
+            mapView.addAnnotation(annotation)
             
             
         }
