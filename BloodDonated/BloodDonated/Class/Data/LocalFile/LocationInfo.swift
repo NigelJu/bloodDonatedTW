@@ -8,6 +8,7 @@
 
 import UIKit
 import ObjectMapper
+import CoreLocation
 
 class LocationInfo: Mappable {
 
@@ -21,6 +22,13 @@ class LocationInfo: Mappable {
     required init?(map: Map) {
         
     }
+
+    func location() -> CLLocationCoordinate2D? {
+        guard let geoCodes = self.geoCode?.components(separatedBy: ","),
+            let lat = Double(geoCodes[0]),
+            let lng = Double(geoCodes[1]) else { return nil }
+        return CLLocationCoordinate2D(latitude: lat, longitude: lng)
+    }
     
     // Mappable
     func mapping(map: Map) {
@@ -31,5 +39,5 @@ class LocationInfo: Mappable {
         comment             <- map["comment"]
         geoCode             <- map["geoCode"]
     }
-    
 }
+
