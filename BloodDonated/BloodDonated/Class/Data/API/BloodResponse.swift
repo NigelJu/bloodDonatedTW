@@ -60,7 +60,7 @@ class BloodData: Mappable {
 enum bloodStorage: String {
     case medium = "medium"
     case full = "full"
-    case low = "low"
+    case low = "empty"
     
     func imageName() -> String {
         switch self {

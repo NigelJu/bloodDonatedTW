@@ -23,11 +23,11 @@ class LocationInfo: Mappable {
         
     }
 
-    func location() -> CLLocationCoordinate2D? {
+    func location() -> CLLocation? {
         guard let geoCodes = self.geoCode?.components(separatedBy: ","),
             let lat = Double(geoCodes[0]),
             let lng = Double(geoCodes[1]) else { return nil }
-        return CLLocationCoordinate2D(latitude: lat, longitude: lng)
+        return CLLocation(latitude: lat, longitude: lng)
     }
     
     // Mappable

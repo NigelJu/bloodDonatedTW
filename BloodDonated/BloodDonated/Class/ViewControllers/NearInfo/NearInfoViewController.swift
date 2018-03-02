@@ -10,12 +10,6 @@ import UIKit
 import MapKit
 import CoreLocation
 
-fileprivate class NearLocationInfo {
-    var allAreaInfos = [[LocationInfo]?]()
-    
-}
-
-
 class AreaLocationInfo {
     // 區域名稱
     var title: String?
@@ -75,23 +69,7 @@ fileprivate enum AreaInfo: String {
             return "花蓮"
         }
     }
-    
-    func fileName() -> String {
-        switch self {
-        case .taipei:
-            return "Taipei"
-        case .hsinchu:
-            return "Hsinchu"
-        case .taichung:
-            return "Taichung"
-        case .tainan:
-            return "Tainan"
-        case .kaoushun:
-            return "Kaoushun"
-        case .haoulain:
-            return "Haoulain"
-        }
-    }
+
 }
 
 
@@ -99,25 +77,21 @@ class NearInfoViewController: UIViewController {
 
     fileprivate let locationManager = CLLocationManager()
     fileprivate let localInfoManager = LocalLocationManager()
-    
     fileprivate var shouldRequestLocationAuthorization = true
-    
     fileprivate var nearInfoTableVC: NearInfoTableViewController?
-   
-    @IBOutlet weak var tableContainerView: UIView!
-    
-    fileprivate var localInfos = NearLocationInfo()
+
+    // 所有捐血站資料
     fileprivate var allAreaInfos = [AreaLocationInfo]()
-    fileprivate var infos2: (distance: DistanceInfo,  areaInfos: [AreaLocationInfo]) = (.near, [AreaLocationInfo]())
-    
+    // 記錄選取的捐血站資料
+    fileprivate var infoRecord: (distance: DistanceInfo, areaSelectIndex: Int) = (.near, AreaInfo.taipei.hashValue)
+
+    @IBOutlet weak var tableContainerView: UIView!
     @IBOutlet weak var distanceSegmentedControl: UISegmentedControl!
     @IBOutlet weak var areaSegmentedControl: UISegmentedControl!
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var areaPickerView: UIPickerView!
-    
+
     
     // MARK:- LifeCycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -125,48 +99,30 @@ class NearInfoViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         
        
+        // 基本設置, 取得本機檔案中所有捐血中資料
         for info in AreaInfo.allValues {
-            
             let areaInfo = AreaLocationInfo()
             areaInfo.title = info.title()
             areaInfo.infos = localInfoManager.locationInfo(withFileName: info.rawValue)
-            infos2.areaInfos.append(areaInfo)
             allAreaInfos.append(areaInfo)
         }
-        
-        print(allAreaInfos)
-        /*
-        // 取得位置資訊
-        localInfos.allAreaInfos.append(localInfoManager.locationInfo(withFileName: AreaInfo.taipei.fileName()))
-        localInfos.allAreaInfos.append(localInfoManager.locationInfo(withFileName: AreaInfo.hsinchu.fileName()))
-        localInfos.allAreaInfos.append(localInfoManager.locationInfo(withFileName: "Taichung"))
-        localInfos.allAreaInfos.append(localInfoManager.locationInfo(withFileName: "Tainan"))
-        localInfos.allAreaInfos.append(localInfoManager.locationInfo(withFileName: "Kaoushun"))
-        localInfos.allAreaInfos.append(localInfoManager.locationInfo(withFileName: "Haoulain"))
-        */
-        /*
-        guard let userLocation = locationManager.location,
-            let distanceInfo = DistanceInfo.init(rawValue: distanceSegmentedControl.selectedSegmentIndex)
-            else { return }
-        
-        if let nearInfos = nearAreaLocationInfo(withDistanceKM: 5) {
-            setAnnotation(withLocalInfos: nearInfos)
-            mapView.showAnnotations(nearAnnotation(currentLocationCoordinate: userLocation, withDistanceMeter: distanceInfo.meterDistance()), animated: true)
-        }else{
-            updateAnnotation()
-        }
-        */
-        
-        // 取得列表VC
+
+        // 取得列表VC, 並設置列表預設資料
         for case let vc as NearInfoTableViewController in self.childViewControllers  {
             nearInfoTableVC = vc
             nearInfoTableVC?.delegate = self
         }
-
         
+
+        // 將選擇的地區設為離自己最近的地區
+        updateNearAreaLocationInfo(withDistanceMeter: infoRecord.distance.meterDistance())
+        nearInfoTableVC?.infos = (infoRecord.distance.rawValue, allAreaInfos[infoRecord.areaSelectIndex].title, nearLocationInfos() )
+        
+        // 在地圖上插針
+        refreshAnnotations()
+
     }
     
-  
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         requestLocationAuthorization(status: CLLocationManager.authorizationStatus())
@@ -177,28 +133,35 @@ class NearInfoViewController: UIViewController {
         
         // 將條件資訊傳遞給pickerVC
         if let pickerVC = segue.destination as? SelectAreaViewController {
-            let infos = infos2.areaInfos
             var titles = [String]()
-            for info in infos {
+            // 只需將地區的資料傳給pickerVC
+            for info in allAreaInfos {
                 titles.append(info.title ?? "")
             }
-            pickerVC.pickarInfos = (infos2.distance, titles)
-            print("setData, infos.distance = \(infos2.distance.rawValue)")
-            
-            
+            pickerVC.pickarInfos = (infoRecord.distance, infoRecord.areaSelectIndex, titles)
+          
             // pickerView點選確認後, 更新被點選的資料以及列表的資訊
             pickerVC.okButtonDidSelectClousure = { [weak self] (distanceInfo, didSelectAreaIndex) in
                 
                 // 更新自身的資料
-                self?.infos2.distance = distanceInfo
-             
+                self?.infoRecord = (distanceInfo, didSelectAreaIndex)
+                
                 // 把更新後的資料帶給列表
-                guard let info = self?.infos2.areaInfos[didSelectAreaIndex] else { return }
-                self?.nearInfoTableVC?.infos = (distanceInfo.rawValue, info )
+                guard let distanceInfo = self?.infoRecord.distance,
+                    let areaIndex = self?.infoRecord.areaSelectIndex,
+                    let title = self?.allAreaInfos[areaIndex].title,
+                    let locationInfo = self?.nearLocationInfos() else { return }
+                self?.nearInfoTableVC?.infos = (distanceInfo.rawValue, title, locationInfo )
+                
+                // 更新地圖的pin
+                self?.refreshAnnotations()
+
             }
             return
         }
         
+        
+        // 詳細資料VC
         if let detailVC = segue.destination as? DetailNearInfoViewController {
             detailVC.info = sender as? LocationInfo
         }
@@ -212,11 +175,6 @@ class NearInfoViewController: UIViewController {
         self.tableContainerView.isHidden = true
     }
     
-    
-    @IBAction func segmentControlValueChanged(_ sender: Any) {
-//        updateAnnotation()
-    }
-    
     @IBAction func CenterButtonDidSelect(_ sender: Any) {
         let userLocation = mapView.userLocation.coordinate
         setMapViewCenter(at: userLocation)
@@ -227,8 +185,6 @@ class NearInfoViewController: UIViewController {
         self.tableContainerView.isHidden = !self.tableContainerView.isHidden
     }
     
-    
-    
 }
 // MARK:- NearInfoTableViewControllerDelegate
 extension NearInfoViewController: NearInfoTableViewControllerDelegate {
@@ -237,7 +193,6 @@ extension NearInfoViewController: NearInfoTableViewControllerDelegate {
     }
     
     func cellDidSelect(cellInfo: LocationInfo) {
-        print(cellInfo)
         performSegue(withIdentifier: "infoDetail", sender: cellInfo)
     }
 }
@@ -246,7 +201,19 @@ extension NearInfoViewController: NearInfoTableViewControllerDelegate {
 // MARK:- MKMapViewDelegate
 extension NearInfoViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        print(view.annotation?.title)
+        
+        self.tabBarController?.tabBar.isHidden = true
+        self.tableContainerView.isHidden = false
+        
+    }
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        nearInfoTableVC?.userLocation = userLocation.location
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        print("annotation = \(annotation)")
+        return nil
     }
     
 }
@@ -256,107 +223,95 @@ extension NearInfoViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         requestLocationAuthorization(status: status)
     }
-    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        print(locations)
+        
+    }
 }
-
-
 
 // MARK:- privateFunction
 fileprivate extension NearInfoViewController {
     
+    // 將使用者位置重新設定為中心
     func setMapViewCenter(at coordinate: CLLocationCoordinate2D) {
         let fixedCenter = CLLocationCoordinate2D(latitude: coordinate.latitude , longitude: coordinate.longitude)
         mapView.setCenter(fixedCenter, animated: true)
     }
     
-    
+    // 取得定位權限
     func requestLocationAuthorization(status: CLAuthorizationStatus) {
         if status != .authorizedWhenInUse {
-            let alertController = UIAlertController(title: "警告", message: "無定位權限, 請至設定中開啟", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "好", style: .default, handler: nil)
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true, completion: nil)
+            UIAlertController.alert(title: "警告", message: "無定位權限, 請至設定中開啟" )
+                .otherHandle(alertAction: nil)
+                .show(currentVC: self)
         }else if status == .authorizedWhenInUse {
             shouldRequestLocationAuthorization = false
         }
     }
     
-    /*
-    func updateAnnotation() {
-        guard let distanceInfo = DistanceInfo.init(rawValue: distanceSegmentedControl.selectedSegmentIndex),
-            let didSelectInfos = localInfos.allAreaInfos[areaSegmentedControl.selectedSegmentIndex],
-            let userLocation = locationManager.location
-            else { return }
-        
-        
-        setAnnotation(withLocalInfos: didSelectInfos)
-        
-        
-        mapView.showAnnotations(nearAnnotation(currentLocationCoordinate: userLocation, withDistanceMeter: distanceInfo.meterDistance()), animated: true)
-    }
-    */
     
-    func nearAnnotation(currentLocationCoordinate coordinate: CLLocation, withDistanceMeter meter: Double?) -> [MKAnnotation] {
-        
-        if let meter = meter {
-            return mapView.annotations.filter { (anntation) -> Bool in
-                return CLLocation(latitude: anntation.coordinate.latitude,
-                                  longitude: anntation.coordinate.longitude)
-                    .distance(from: coordinate) < meter
-            }
-            
-            
-        }
-        return mapView.annotations
-    }
-    
-    func nearAreaLocationInfo(withDistanceKM km: Int) -> [LocationInfo]? {
-        for areaInfo in localInfos.allAreaInfos {
-            for localInfo in areaInfo ?? [] {
-                if isNear(withLocationInfo: localInfo, DistanceKM: km) {
-                    return areaInfo
+    // 將記錄更新為距離近的捐血站地點
+    func updateNearAreaLocationInfo(withDistanceMeter meter: Double) {
+        for (index, areaInfo) in allAreaInfos.enumerated() {
+            for localInfo in areaInfo.infos ?? [] {
+                if isNear(withLocationInfo: localInfo, distanceMeter: meter) {
+                    infoRecord.areaSelectIndex = index
+                    return
                 }
             }
         }
-        return nil
     }
     
-    func setAnnotation(withLocalInfos areaInfos: [LocationInfo]) {
+    // 取得附近的捐血站資料
+    func nearLocationInfos() -> [LocationInfo] {
+        var nearLocationInfos = [LocationInfo]()
+        for locationInfo in allAreaInfos[infoRecord.areaSelectIndex].infos ?? [] {
+            if isNear(withLocationInfo: locationInfo, distanceMeter: infoRecord.distance.meterDistance()) {
+                nearLocationInfos.append(locationInfo)
+            }
+        }
+        return nearLocationInfos
+    }
+ 
+    // 更新地圖上的pin點
+    func refreshAnnotations() {
         
         mapView.removeAnnotations(mapView.annotations)
         
-        for areaInfo in areaInfos {
-            guard let geoCode = areaInfo.geoCode else { continue }
-            let geoCodes = geoCode.components(separatedBy: ",")
-            guard let lat = Double(geoCodes[0]),
-                let lng = Double(geoCodes[1])
-                else { continue }
-            let coodinate = CLLocationCoordinate2DMake(lat, lng)
+        var annotations = [MKPointAnnotation]()
+        for locationInfo in nearLocationInfos() {
+            guard let location = locationInfo.location() else { continue }
             let annotation = MKPointAnnotation()
-            
-            annotation.coordinate = coodinate
-            annotation.title = areaInfo.name
-            mapView.addAnnotation(annotation)
-            
-            
+            annotation.coordinate = location.coordinate
+            annotation.title = locationInfo.name
+            annotations.append(annotation)
         }
+        mapView.addAnnotations(annotations)
         
+        let userAnnotation = MKPointAnnotation()
+        guard let userCoordinate = locationManager.location?.coordinate else {
+            mapView.showAnnotations(mapView.annotations, animated: true)
+            return
+        }
+        // 把自己加入, 才會在中間, 畫面才會有呈現使用者位置
+        userAnnotation.coordinate = userCoordinate
+        annotations.append(userAnnotation)
+        mapView.showAnnotations(annotations, animated: true)
         
-        
-        
+        // 再把自己刪掉, 不然會多一個pin
+        for mapViewAnnotation in mapView.annotations
+            where mapViewAnnotation.coordinate.latitude == userCoordinate.latitude
+                && mapViewAnnotation.coordinate.longitude == userCoordinate.longitude {
+            mapView.removeAnnotation(mapViewAnnotation)
+        }
     }
     
-    func isNear(withLocationInfo localInfo: LocationInfo, DistanceKM km: Int) -> Bool {
-        guard let geoCode = localInfo.geoCode else { return false }
-        let geoCodes = geoCode.components(separatedBy: ",")
-        guard let lat = Double(geoCodes[0]),
-            let lng = Double(geoCodes[1]),
-            let currentLocation = locationManager.location
-            else { return false }
-        
-        let location = CLLocation(latitude: lat, longitude: lng)
-        
-        let meter = location.distance(from: currentLocation)
-        return meter < Double(km * 1000)
+    // 是否鄰近所輸入的捐血站
+    func isNear(withLocationInfo localInfo: LocationInfo, distanceMeter meter: Double) -> Bool {
+        guard let location = localInfo.location(),
+            let currentLocation = locationManager.location else { return false }
+        let differMeter = location.distance(from: currentLocation)
+        return differMeter <= meter
     }
 }

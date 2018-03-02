@@ -342,50 +342,21 @@
                                     <outletCollection property="gestureRecognizers" destination="EyQ-1S-MKO" appends="YES" id="pgM-rF-XF8"/>
                                 </connections>
                             </mapView>
-                            <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="huk-Du-xUl">
-                                <rect key="frame" x="36" y="84" width="248" height="51"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="pQO-AC-2vt"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="台北"/>
-                                    <segment title="新竹"/>
-                                    <segment title="台中"/>
-                                    <segment title="台南"/>
-                                    <segment title="高雄"/>
-                                    <segment title="花蓮"/>
-                                </segments>
-                                <connections>
-                                    <action selector="segmentControlValueChanged:" destination="G57-ZM-eRI" eventType="valueChanged" id="h9t-Yu-dZE"/>
-                                </connections>
-                            </segmentedControl>
-                            <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="jNC-ix-cGk">
-                                <rect key="frame" x="85.5" y="154" width="149" height="51"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="1IS-Gx-Apx"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="3公里"/>
-                                    <segment title="5公里"/>
-                                    <segment title="不限"/>
-                                </segments>
-                                <connections>
-                                    <action selector="segmentControlValueChanged:" destination="G57-ZM-eRI" eventType="valueChanged" id="Jpl-wY-aM5"/>
-                                </connections>
-                            </segmentedControl>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ddK-Hx-Vsv">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="ddK-Hx-Vsv">
                                 <rect key="frame" x="254" y="144" width="50" height="100"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1T-u5-Fkq">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <state key="normal" title="Center"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1T-u5-Fkq">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="48.5"/>
+                                        <color key="backgroundColor" red="1" green="0.73253348214285718" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="center"/>
                                         <connections>
                                             <action selector="CenterButtonDidSelect:" destination="G57-ZM-eRI" eventType="touchUpInside" id="1jL-qt-LX2"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIH-A8-9tH">
-                                        <rect key="frame" x="0.0" y="50" width="50" height="50"/>
-                                        <state key="normal" title="List"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIH-A8-9tH">
+                                        <rect key="frame" x="0.0" y="51.5" width="50" height="48.5"/>
+                                        <color key="backgroundColor" red="1" green="0.16297433035714284" blue="0.43353794642857141" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="search"/>
                                         <connections>
                                             <action selector="ListButtonDIdSelect:" destination="G57-ZM-eRI" eventType="touchUpInside" id="d6i-JH-sGP"/>
                                         </connections>
@@ -407,9 +378,6 @@
                         <constraints>
                             <constraint firstItem="fXS-tA-zMW" firstAttribute="leading" secondItem="Xni-eQ-VnH" secondAttribute="leading" id="2Cf-mr-s9A"/>
                             <constraint firstItem="fXS-tA-zMW" firstAttribute="top" secondItem="HmL-IQ-M5x" secondAttribute="top" id="5cg-5N-JXw"/>
-                            <constraint firstItem="huk-Du-xUl" firstAttribute="leading" secondItem="HmL-IQ-M5x" secondAttribute="leadingMargin" constant="20" id="ECa-cn-5VI"/>
-                            <constraint firstItem="ddK-Hx-Vsv" firstAttribute="top" secondItem="huk-Du-xUl" secondAttribute="bottom" constant="10" id="GMv-EL-TZ1"/>
-                            <constraint firstItem="huk-Du-xUl" firstAttribute="centerX" secondItem="jNC-ix-cGk" secondAttribute="centerX" id="IIQ-vT-Ld6"/>
                             <constraint firstItem="Xni-eQ-VnH" firstAttribute="trailing" secondItem="fXS-tA-zMW" secondAttribute="trailing" id="Ldl-3f-rtd"/>
                             <constraint firstItem="fXS-tA-zMW" firstAttribute="centerX" secondItem="Xni-eQ-VnH" secondAttribute="centerX" id="Lst-E5-d2m"/>
                             <constraint firstItem="Xni-eQ-VnH" firstAttribute="trailing" secondItem="0f6-Ot-13o" secondAttribute="trailing" id="NAa-oI-ZpO"/>
@@ -417,19 +385,14 @@
                             <constraint firstAttribute="bottom" secondItem="0f6-Ot-13o" secondAttribute="bottom" id="Y54-WM-Pky"/>
                             <constraint firstItem="0f6-Ot-13o" firstAttribute="height" secondItem="HmL-IQ-M5x" secondAttribute="height" multiplier="3/7" id="Z1B-S5-L9W"/>
                             <constraint firstItem="0f6-Ot-13o" firstAttribute="leading" secondItem="Xni-eQ-VnH" secondAttribute="leading" id="gKQ-gS-r19"/>
-                            <constraint firstItem="jNC-ix-cGk" firstAttribute="top" secondItem="huk-Du-xUl" secondAttribute="bottom" constant="20" id="gXA-vZ-NWK"/>
                             <constraint firstItem="fXS-tA-zMW" firstAttribute="centerY" secondItem="HmL-IQ-M5x" secondAttribute="centerY" id="hfz-be-5sg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="huk-Du-xUl" secondAttribute="trailing" constant="20" id="mJs-au-xqs"/>
                             <constraint firstAttribute="bottom" secondItem="fXS-tA-zMW" secondAttribute="bottom" id="mrv-eg-372"/>
-                            <constraint firstItem="huk-Du-xUl" firstAttribute="top" secondItem="Xni-eQ-VnH" secondAttribute="top" constant="20" id="nTR-1X-VVn"/>
-                            <constraint firstItem="jNC-ix-cGk" firstAttribute="centerX" secondItem="Xni-eQ-VnH" secondAttribute="centerX" id="yPe-Vg-0yh"/>
+                            <constraint firstItem="ddK-Hx-Vsv" firstAttribute="top" secondItem="Xni-eQ-VnH" secondAttribute="top" constant="80" id="yuZ-16-l49"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xni-eQ-VnH"/>
                     </view>
                     <navigationItem key="navigationItem" title="附近捐血站" id="gdq-dx-uC9"/>
                     <connections>
-                        <outlet property="areaSegmentedControl" destination="huk-Du-xUl" id="rvE-GJ-wb0"/>
-                        <outlet property="distanceSegmentedControl" destination="jNC-ix-cGk" id="73t-oQ-Tpa"/>
                         <outlet property="mapView" destination="fXS-tA-zMW" id="Kva-Pn-0nH"/>
                         <outlet property="tableContainerView" destination="0f6-Ot-13o" id="7pt-eL-Y0l"/>
                         <segue destination="Hzb-uq-1Ng" kind="push" identifier="infoDetail" id="SyZ-FL-Oha"/>
@@ -541,10 +504,10 @@
                                             <action selector="areaButtonDidSelect:" destination="mRE-QT-2qp" eventType="touchUpInside" id="jki-jr-bfS"/>
                                         </connections>
                                     </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="60" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f6Y-Xt-H0B">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="60" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f6Y-Xt-H0B">
                                         <rect key="frame" x="0.0" y="60" width="320" height="183.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="separatorColor" red="0.880730927" green="0.87520748380000002" blue="0.87846136090000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="contentCell" rowHeight="140" id="Sxm-ub-suj" customClass="NearBloodStationInfoTableViewCell" customModule="捐血趣" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="60" width="320" height="140"/>
@@ -553,23 +516,17 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="287" height="139.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UcF-p5-Eq0">
-                                                            <rect key="frame" x="20" y="0.0" width="322" height="139.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="UcF-p5-Eq0">
+                                                            <rect key="frame" x="20" y="5" width="262" height="134.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="捐血站名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2O4-z3-dRv">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="322" height="46.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVN-42-mDB">
-                                                                    <rect key="frame" x="0.0" y="46.5" width="322" height="46.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="262" height="66"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="距離" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CA6-Il-Bfg">
-                                                                    <rect key="frame" x="0.0" y="93" width="322" height="46.5"/>
+                                                                    <rect key="frame" x="0.0" y="69" width="262" height="65.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -579,14 +536,13 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="UcF-p5-Eq0" firstAttribute="top" secondItem="JYe-3M-AeU" secondAttribute="top" id="5fY-Nd-ybI"/>
+                                                        <constraint firstItem="UcF-p5-Eq0" firstAttribute="top" secondItem="JYe-3M-AeU" secondAttribute="top" constant="5" id="5fY-Nd-ybI"/>
                                                         <constraint firstAttribute="bottom" secondItem="UcF-p5-Eq0" secondAttribute="bottom" id="CqL-9e-BDA"/>
                                                         <constraint firstItem="UcF-p5-Eq0" firstAttribute="leading" secondItem="JYe-3M-AeU" secondAttribute="leading" constant="20" id="UPL-pO-sUW"/>
-                                                        <constraint firstAttribute="trailing" secondItem="UcF-p5-Eq0" secondAttribute="trailing" id="ZbM-8y-eNz"/>
+                                                        <constraint firstAttribute="trailing" secondItem="UcF-p5-Eq0" secondAttribute="trailing" constant="5" id="ZbM-8y-eNz"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="addressLabel" destination="cVN-42-mDB" id="CsT-n2-oVH"/>
                                                     <outlet property="distanceLabel" destination="CA6-Il-Bfg" id="Yd2-50-k67"/>
                                                     <outlet property="titleLabel" destination="2O4-z3-dRv" id="hIG-d5-Ejc"/>
                                                 </connections>
@@ -824,5 +780,7 @@
         <image name="BloodMed" width="60" height="89"/>
         <image name="Location" width="15" height="22"/>
         <image name="Tabar_icon_settings" width="21" height="21"/>
+        <image name="center" width="20" height="20"/>
+        <image name="search" width="20" height="20"/>
     </resources>
 </document>

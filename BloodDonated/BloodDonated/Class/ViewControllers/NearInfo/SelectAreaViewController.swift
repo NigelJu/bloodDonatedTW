@@ -16,7 +16,7 @@ fileprivate enum ConditionType: Int {
 
 class SelectAreaViewController: UIViewController {
 
-    var pickarInfos: (distance: DistanceInfo, areaTitles: [String])?
+    var pickarInfos: (distance: DistanceInfo, areaIndex: Int, areaTitles: [String])?
     
     // 由外部決定確認按鈕點選後的行為
     var okButtonDidSelectClousure: ((_ distanceInfo: DistanceInfo, _ didSelectAreaIndex: Int) -> Void)?
@@ -31,12 +31,13 @@ class SelectAreaViewController: UIViewController {
         super.viewDidLoad()
         
         // 由外部決定預設選取的值
-        guard let distanceIndex = pickarInfos?.distance.hashValue
-        else { return }
-        
-        print("distanceIndex = \(distanceIndex)")
+        guard let distanceIndex = pickarInfos?.distance.hashValue,
+            let areaIndex = pickarInfos?.areaIndex else { return }
+    
         
         pickerView.selectRow(distanceIndex, inComponent: ConditionType.distance.rawValue, animated: false)
+         pickerView.selectRow(areaIndex, inComponent: ConditionType.area.rawValue, animated: false)
+        
     }
     
     // MARK:- IBAction
