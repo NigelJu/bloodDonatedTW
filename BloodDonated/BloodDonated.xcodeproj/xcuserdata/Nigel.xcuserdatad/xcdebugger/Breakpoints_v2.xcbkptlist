@@ -9,14 +9,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BloodDonated/Class/Session/SessionTask.swift"
-            timestampString = "523279020.405409"
+            filePath = "BloodDonated/Class/ThirdParty/JsonCodable.swift"
+            timestampString = "542822348.674374"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "fetchBloodInfo()"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "jsonArrayString(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 0 of (extension in &#x6350;&#x8840;&#x8da3;):Swift.Array&lt;A where A: &#x6350;&#x8840;&#x8da3;.JsonCodable&gt;.jsonArrayString(Foundation.JSONEncoder.OutputFormatting) -&gt; Swift.String"
+                  moduleName = "&#x6350;&#x8840;&#x8da3;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Nigel/Desktop/Nigel/XCode_Proj/BllodDonate_Swift/BloodDonated/BloodDonated/Class/ThirdParty/JsonCodable.swift"
+                  timestampString = "542822348.820608"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "14">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(extension in &#x6350;&#x8840;&#x8da3;):Swift.Array&lt;A where A: &#x6350;&#x8840;&#x8da3;.JsonCodable&gt;.jsonArrayString(Foundation.JSONEncoder.OutputFormatting) -&gt; Swift.String"
+                  moduleName = "&#x6350;&#x8840;&#x8da3;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Nigel/Desktop/Nigel/XCode_Proj/BllodDonate_Swift/BloodDonated/BloodDonated/Class/ThirdParty/JsonCodable.swift"
+                  timestampString = "542822348.823488"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "25">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

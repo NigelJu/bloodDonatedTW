@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A6011DA9203602510098969B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6011DA7203602500098969B /* Alamofire.framework */; };
-		A6011DAA203602510098969B /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6011DA7203602500098969B /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A6011DAB203602510098969B /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6011DA8203602510098969B /* ObjectMapper.framework */; };
-		A6011DAC203602510098969B /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6011DA8203602510098969B /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A642E9061F308BCE0002407D /* BloodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642E9051F308BCE0002407D /* BloodResponse.swift */; };
 		A642E9181F30CAE30002407D /* BloodStoreCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642E9161F30CAE30002407D /* BloodStoreCellTableViewCell.swift */; };
 		A642E9191F30CAE30002407D /* BloodStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642E9171F30CAE30002407D /* BloodStoreViewController.swift */; };
@@ -23,8 +19,8 @@
 		A642E9391F30D61F0002407D /* Taichung.json in Resources */ = {isa = PBXBuildFile; fileRef = A642E9331F30D61F0002407D /* Taichung.json */; };
 		A642E93A1F30D61F0002407D /* Tainan.json in Resources */ = {isa = PBXBuildFile; fileRef = A642E9341F30D61F0002407D /* Tainan.json */; };
 		A642E93B1F30D61F0002407D /* Taipei.json in Resources */ = {isa = PBXBuildFile; fileRef = A642E9351F30D61F0002407D /* Taipei.json */; };
-		A642E93E1F30D64F0002407D /* LocalLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642E93D1F30D64F0002407D /* LocalLocationManager.swift */; };
 		A642E9431F3244190002407D /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642E9421F3244190002407D /* SettingTableViewController.swift */; };
+		A663156F205ACBE40006AE34 /* JsonCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A663156E205ACBE40006AE34 /* JsonCodable.swift */; };
 		A665286A203E7B8100A791B2 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6652869203E7B8100A791B2 /* ViewController+Extension.swift */; };
 		A69F2F3120555F3C0099DE65 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A69F2F2F20555F3B0099DE65 /* Reachability.m */; };
 		A6A336F91E754ACB00B842E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A336F71E754ACB00B842E6 /* Main.storyboard */; };
@@ -32,9 +28,7 @@
 		A6A336FE1E754ACB00B842E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A336FC1E754ACB00B842E6 /* LaunchScreen.storyboard */; };
 		A6A337081E754F1700B842E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A337061E754F1700B842E6 /* AppDelegate.swift */; };
 		A6A337101E7551B900B842E6 /* BloodInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A3370F1E7551B900B842E6 /* BloodInfo.swift */; };
-		A6A337131E75715400B842E6 /* SessionTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A337121E75715400B842E6 /* SessionTask.swift */; };
 		A6B07AB92036001E00E2BF9E /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B07AB82036001E00E2BF9E /* SwiftyJSON.swift */; };
-		A6B07ABC2036003600E2BF9E /* AlamofireObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B07ABB2036003600E2BF9E /* AlamofireObjectMapper.swift */; };
 		A6EC1229203FF019006BB722 /* NearInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EC1228203FF019006BB722 /* NearInfoTableViewController.swift */; };
 		A6EC1269204536D0006BB722 /* DetailNearInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EC1268204536D0006BB722 /* DetailNearInfoViewController.swift */; };
 		A6EC126B204537FF006BB722 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EC126A204537FF006BB722 /* UIAlertController+Extension.swift */; };
@@ -43,18 +37,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A6B079A32035E8E200E2BF9E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				A6011DAC203602510098969B /* ObjectMapper.framework in Embed Frameworks */,
-				A6011DAA203602510098969B /* Alamofire.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A6B079A42035EA0B00E2BF9E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -67,8 +49,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A6011DA7203602500098969B /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		A6011DA8203602510098969B /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		A642E9051F308BCE0002407D /* BloodResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodResponse.swift; sourceTree = "<group>"; };
 		A642E9161F30CAE30002407D /* BloodStoreCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodStoreCellTableViewCell.swift; sourceTree = "<group>"; };
 		A642E9171F30CAE30002407D /* BloodStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodStoreViewController.swift; sourceTree = "<group>"; };
@@ -81,11 +61,9 @@
 		A642E9331F30D61F0002407D /* Taichung.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Taichung.json; sourceTree = "<group>"; };
 		A642E9341F30D61F0002407D /* Tainan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Tainan.json; sourceTree = "<group>"; };
 		A642E9351F30D61F0002407D /* Taipei.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Taipei.json; sourceTree = "<group>"; };
-		A642E93D1F30D64F0002407D /* LocalLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalLocationManager.swift; sourceTree = "<group>"; };
 		A642E9421F3244190002407D /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		A663156E205ACBE40006AE34 /* JsonCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonCodable.swift; sourceTree = "<group>"; };
 		A6652869203E7B8100A791B2 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
-		A68B6D932035D70700EF6DBC /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
-		A68B6D942035D70700EF6DBC /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Alamofire.framework.dSYM; sourceTree = "<group>"; };
 		A69F2F2E20555F3A0099DE65 /* 捐血趣-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "捐血趣-Bridging-Header.h"; sourceTree = "<group>"; };
 		A69F2F2F20555F3B0099DE65 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		A69F2F3020555F3C0099DE65 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -96,9 +74,7 @@
 		A6A336FF1E754ACB00B842E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6A337061E754F1700B842E6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6A3370F1E7551B900B842E6 /* BloodInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodInfo.swift; sourceTree = "<group>"; };
-		A6A337121E75715400B842E6 /* SessionTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTask.swift; sourceTree = "<group>"; };
 		A6B07AB82036001E00E2BF9E /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		A6B07ABB2036003600E2BF9E /* AlamofireObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireObjectMapper.swift; sourceTree = "<group>"; };
 		A6EC1228203FF019006BB722 /* NearInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearInfoTableViewController.swift; sourceTree = "<group>"; };
 		A6EC1268204536D0006BB722 /* DetailNearInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNearInfoViewController.swift; sourceTree = "<group>"; };
 		A6EC126A204537FF006BB722 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
@@ -111,22 +87,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6011DAB203602510098969B /* ObjectMapper.framework in Frameworks */,
-				A6011DA9203602510098969B /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A642E8F51F3088410002407D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A68B6D8E2035D70700EF6DBC /* Build */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		A642E9041F308BBA0002407D /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,14 +144,6 @@
 			path = LocalFile;
 			sourceTree = "<group>";
 		};
-		A642E93C1F30D6320002407D /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				A642E93D1F30D64F0002407D /* LocalLocationManager.swift */,
-			);
-			path = Manager;
-			sourceTree = "<group>";
-		};
 		A642E93F1F3243F20002407D /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,24 +161,6 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		A68B6D8E2035D70700EF6DBC /* Build */ = {
-			isa = PBXGroup;
-			children = (
-				A68B6D922035D70700EF6DBC /* iOS */,
-			);
-			name = Build;
-			path = Carthage/Build;
-			sourceTree = "<group>";
-		};
-		A68B6D922035D70700EF6DBC /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				A68B6D932035D70700EF6DBC /* Alamofire.framework */,
-				A68B6D942035D70700EF6DBC /* Alamofire.framework.dSYM */,
-			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
 		A69F2F2D20555F290099DE65 /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,11 +173,8 @@
 		A6A336E71E754ACA00B842E6 = {
 			isa = PBXGroup;
 			children = (
-				A6011DA7203602500098969B /* Alamofire.framework */,
-				A6011DA8203602510098969B /* ObjectMapper.framework */,
 				A6A336F21E754ACB00B842E6 /* BloodDonated */,
 				A6A336F11E754ACB00B842E6 /* Products */,
-				A642E8F51F3088410002407D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -267,8 +204,6 @@
 			children = (
 				A6652868203E79FE00A791B2 /* Extension */,
 				A6A337061E754F1700B842E6 /* AppDelegate.swift */,
-				A642E93C1F30D6320002407D /* Manager */,
-				A6A337111E75712A00B842E6 /* Session */,
 				A6A3370D1E7551A200B842E6 /* Data */,
 				A6A3370E1E7551A200B842E6 /* ThirdParty */,
 				A6A337071E754F1700B842E6 /* ViewControllers */,
@@ -299,20 +234,13 @@
 		A6A3370E1E7551A200B842E6 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				A663156E205ACBE40006AE34 /* JsonCodable.swift */,
 				A69F2F2E20555F3A0099DE65 /* 捐血趣-Bridging-Header.h */,
 				A69F2F2D20555F290099DE65 /* Reachability */,
 				A6B07ABA2036003600E2BF9E /* AlamofireObjectMapper */,
 				A6A337141E7576E300B842E6 /* SwiftJson */,
 			);
 			path = ThirdParty;
-			sourceTree = "<group>";
-		};
-		A6A337111E75712A00B842E6 /* Session */ = {
-			isa = PBXGroup;
-			children = (
-				A6A337121E75715400B842E6 /* SessionTask.swift */,
-			);
-			path = Session;
 			sourceTree = "<group>";
 		};
 		A6A337141E7576E300B842E6 /* SwiftJson */ = {
@@ -326,7 +254,6 @@
 		A6B07ABA2036003600E2BF9E /* AlamofireObjectMapper */ = {
 			isa = PBXGroup;
 			children = (
-				A6B07ABB2036003600E2BF9E /* AlamofireObjectMapper.swift */,
 			);
 			path = AlamofireObjectMapper;
 			sourceTree = "<group>";
@@ -341,8 +268,7 @@
 				A6A336EC1E754ACA00B842E6 /* Sources */,
 				A6A336ED1E754ACA00B842E6 /* Frameworks */,
 				A6A336EE1E754ACA00B842E6 /* Resources */,
-				A68B6D8B2035D50F00EF6DBC /* ShellScript */,
-				A6B079A32035E8E200E2BF9E /* Embed Frameworks */,
+				A68B6D8B2035D50F00EF6DBC /* Run Script */,
 				A6B079A42035EA0B00E2BF9E /* CopyFiles */,
 			);
 			buildRules = (
@@ -410,16 +336,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A68B6D8B2035D50F00EF6DBC /* ShellScript */ = {
+		A68B6D8B2035D50F00EF6DBC /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
+				"$(DERIVED_FILE_DIR)/myfile",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -437,21 +363,19 @@
 				A6A337081E754F1700B842E6 /* AppDelegate.swift in Sources */,
 				A6A337101E7551B900B842E6 /* BloodInfo.swift in Sources */,
 				A6EC1229203FF019006BB722 /* NearInfoTableViewController.swift in Sources */,
-				A6B07ABC2036003600E2BF9E /* AlamofireObjectMapper.swift in Sources */,
 				A6EC128B204734F2006BB722 /* SelectAreaViewController.swift in Sources */,
 				A6EC1269204536D0006BB722 /* DetailNearInfoViewController.swift in Sources */,
 				A642E9191F30CAE30002407D /* BloodStoreViewController.swift in Sources */,
 				A642E9061F308BCE0002407D /* BloodResponse.swift in Sources */,
 				A642E9181F30CAE30002407D /* BloodStoreCellTableViewCell.swift in Sources */,
 				A642E92B1F30CF560002407D /* NearInfoViewController.swift in Sources */,
-				A642E93E1F30D64F0002407D /* LocalLocationManager.swift in Sources */,
 				A642E91B1F30CC470002407D /* StorageTipsViewController.swift in Sources */,
 				A69F2F3120555F3C0099DE65 /* Reachability.m in Sources */,
 				A665286A203E7B8100A791B2 /* ViewController+Extension.swift in Sources */,
+				A663156F205ACBE40006AE34 /* JsonCodable.swift in Sources */,
 				A6EC126B204537FF006BB722 /* UIAlertController+Extension.swift in Sources */,
 				A642E92E1F30D0C40002407D /* LocationInfo.swift in Sources */,
 				A6B07AB92036001E00E2BF9E /* SwiftyJSON.swift in Sources */,
-				A6A337131E75715400B842E6 /* SessionTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

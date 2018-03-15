@@ -7,8 +7,6 @@
 //
 
 import UIKit
-//import AlamofireObjectMapper
-import Alamofire
 
 /*
  庫存量VC
@@ -30,7 +28,7 @@ class BloodStoreViewController: UIViewController {
         tableView.rowHeight = 130
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
         
-        
+        /*
         Alamofire.request(SERVER_HTTP).responseObject { (response: DataResponse<BloodResponse>) in
             
             if let bloodResponse = response.result.value {
@@ -59,11 +57,10 @@ class BloodStoreViewController: UIViewController {
                     self.tableView.reloadData()
                     self.activityIndicatorView.stopAnimating()
                 }
-                
             }
         }
 
-        
+        */
         
     }
     

@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import ObjectMapper
 import CoreLocation
 
-class LocationInfo: Mappable {
+class LocationInfo : JsonCodable {
 
     var name: String?
     var address: String?
@@ -19,9 +18,6 @@ class LocationInfo: Mappable {
     var comment: String?
     var geoCode: String?
 
-    required init?(map: Map) {
-        
-    }
 
     func location() -> CLLocation? {
         guard let geoCodes = self.geoCode?.components(separatedBy: ","),
@@ -30,14 +26,5 @@ class LocationInfo: Mappable {
         return CLLocation(latitude: lat, longitude: lng)
     }
     
-    // Mappable
-    func mapping(map: Map) {
-        name                <- map["name"]
-        address             <- map["address"]
-        phone               <- map["phone"]
-        time                <- map["time"]
-        comment             <- map["comment"]
-        geoCode             <- map["geoCode"]
-    }
 }
 
