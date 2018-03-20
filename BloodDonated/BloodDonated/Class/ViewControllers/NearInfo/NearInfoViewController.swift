@@ -76,7 +76,6 @@ fileprivate enum AreaInfo: String {
 class NearInfoViewController: UIViewController {
 
     fileprivate let locationManager = CLLocationManager()
-//    fileprivate let localInfoManager = LocalLocationManager()
     fileprivate var shouldRequestLocationAuthorization = true
     fileprivate var nearInfoTableVC: NearInfoTableViewController?
 
@@ -103,10 +102,9 @@ class NearInfoViewController: UIViewController {
         for info in AreaInfo.allValues {
             let areaInfo = AreaLocationInfo()
             areaInfo.title = info.title()
-
-            let path = Bundle.main.path(forResource: info.rawValue, ofType: "json")!
+            guard let path = Bundle.main.path(forResource: info.rawValue, ofType: "json") else { return }
             let url = URL(fileURLWithPath: path)
-            let data = try! Data(contentsOf: url)
+            guard let data = try? Data(contentsOf: url) else { return }
             areaInfo.infos = [LocationInfo](data: data)
             allAreaInfos.append(areaInfo)
         }

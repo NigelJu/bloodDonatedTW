@@ -10,17 +10,17 @@ import UIKit
 
 class BloodData {
     
-    var typeA: bloodStorage?
-    var typeB: bloodStorage?
-    var typeAB: bloodStorage?
-    var typeO: bloodStorage?
-    var name: String?
+    var typeA: BloodStorage?
+    var typeB: BloodStorage?
+    var typeAB: BloodStorage?
+    var typeO: BloodStorage?
+    var name = String()
     
 }
-enum bloodStorage: String {
-    case medium = "medium"
-    case full = "full"
-    case low = "empty"
+enum BloodStorage: String {
+    case medium = "images/StorageIcon002.png"      // 庫存量4到7日
+    case low = "images/StorageIcon001.png"        // 庫存量4日以下
+    case full = "images/StorageIcon003.png"         // 庫存量7日以上
     
     func imageName() -> String {
         switch self {
