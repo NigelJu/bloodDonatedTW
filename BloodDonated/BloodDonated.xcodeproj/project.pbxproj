@@ -20,6 +20,8 @@
 		A642E93A1F30D61F0002407D /* Tainan.json in Resources */ = {isa = PBXBuildFile; fileRef = A642E9341F30D61F0002407D /* Tainan.json */; };
 		A642E93B1F30D61F0002407D /* Taipei.json in Resources */ = {isa = PBXBuildFile; fileRef = A642E9351F30D61F0002407D /* Taipei.json */; };
 		A642E9431F3244190002407D /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642E9421F3244190002407D /* SettingTableViewController.swift */; };
+		A649E35D206A18D9000E3E46 /* UserDefualtManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A649E35C206A18D9000E3E46 /* UserDefualtManager.swift */; };
+		A649E35F206A30D2000E3E46 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A649E35E206A30D2000E3E46 /* DateFormatterManager.swift */; };
 		A65AA0C6205AD84A00B8CC61 /* Ji.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65AA0C2205AD84A00B8CC61 /* Ji.swift */; };
 		A65AA0C7205AD84A00B8CC61 /* JiNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65AA0C3205AD84A00B8CC61 /* JiNode.swift */; };
 		A65AA0C8205AD84A00B8CC61 /* JiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65AA0C5205AD84A00B8CC61 /* JiHelper.swift */; };
@@ -66,6 +68,8 @@
 		A642E9341F30D61F0002407D /* Tainan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Tainan.json; sourceTree = "<group>"; };
 		A642E9351F30D61F0002407D /* Taipei.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Taipei.json; sourceTree = "<group>"; };
 		A642E9421F3244190002407D /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		A649E35C206A18D9000E3E46 /* UserDefualtManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefualtManager.swift; sourceTree = "<group>"; };
+		A649E35E206A30D2000E3E46 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
 		A65AA0C2205AD84A00B8CC61 /* Ji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ji.swift; sourceTree = "<group>"; };
 		A65AA0C3205AD84A00B8CC61 /* JiNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JiNode.swift; sourceTree = "<group>"; };
 		A65AA0C4205AD84A00B8CC61 /* TestParse-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestParse-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -77,7 +81,7 @@
 		A69F2F2E20555F3A0099DE65 /* 捐血趣-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "捐血趣-Bridging-Header.h"; sourceTree = "<group>"; };
 		A69F2F2F20555F3B0099DE65 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		A69F2F3020555F3C0099DE65 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		A6A336F01E754ACB00B842E6 /* 捐血趣.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "捐血趣.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6A336F01E754ACB00B842E6 /* 捐血趣.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "捐血趣.app"; path = "一起捐血趣.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A336F81E754ACB00B842E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6A336FA1E754ACB00B842E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6A336FD1E754ACB00B842E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -163,6 +167,15 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
+		A649E35B206A18C1000E3E46 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A649E35C206A18D9000E3E46 /* UserDefualtManager.swift */,
+				A649E35E206A30D2000E3E46 /* DateFormatterManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		A65AA0C1205AD84A00B8CC61 /* Ji */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +247,7 @@
 		A6A337051E754F1700B842E6 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				A649E35B206A18C1000E3E46 /* Manager */,
 				A6652868203E79FE00A791B2 /* Extension */,
 				A6A337061E754F1700B842E6 /* AppDelegate.swift */,
 				A6A3370D1E7551A200B842E6 /* Data */,
@@ -277,9 +291,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A6A336EF1E754ACA00B842E6 /* 捐血趣 */ = {
+		A6A336EF1E754ACA00B842E6 /* 一起捐血趣 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A6A337021E754ACB00B842E6 /* Build configuration list for PBXNativeTarget "捐血趣" */;
+			buildConfigurationList = A6A337021E754ACB00B842E6 /* Build configuration list for PBXNativeTarget "一起捐血趣" */;
 			buildPhases = (
 				A6A336EC1E754ACA00B842E6 /* Sources */,
 				A6A336ED1E754ACA00B842E6 /* Frameworks */,
@@ -291,7 +305,7 @@
 			);
 			dependencies = (
 			);
-			name = "捐血趣";
+			name = "一起捐血趣";
 			productName = BloodDonated;
 			productReference = A6A336F01E754ACB00B842E6 /* 捐血趣.app */;
 			productType = "com.apple.product-type.application";
@@ -327,7 +341,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A6A336EF1E754ACA00B842E6 /* 捐血趣 */,
+				A6A336EF1E754ACA00B842E6 /* 一起捐血趣 */,
 			);
 		};
 /* End PBXProject section */
@@ -374,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A649E35F206A30D2000E3E46 /* DateFormatterManager.swift in Sources */,
 				A6EC128D2047FF4E006BB722 /* NearBloodStationInfoTableViewCell.swift in Sources */,
 				A642E9431F3244190002407D /* SettingTableViewController.swift in Sources */,
 				A65AA0C6205AD84A00B8CC61 /* Ji.swift in Sources */,
@@ -390,6 +405,7 @@
 				A642E92B1F30CF560002407D /* NearInfoViewController.swift in Sources */,
 				A642E91B1F30CC470002407D /* StorageTipsViewController.swift in Sources */,
 				A69F2F3120555F3C0099DE65 /* Reachability.m in Sources */,
+				A649E35D206A18D9000E3E46 /* UserDefualtManager.swift in Sources */,
 				A665286A203E7B8100A791B2 /* ViewController+Extension.swift in Sources */,
 				A663156F205ACBE40006AE34 /* JsonCodable.swift in Sources */,
 				A6EC126B204537FF006BB722 /* UIAlertController+Extension.swift in Sources */,
@@ -536,6 +552,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "BloodDonated/Class/ThirdParty/捐血趣-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -562,6 +579,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BloodDonated/Class/ThirdParty/捐血趣-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -577,7 +595,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A6A337021E754ACB00B842E6 /* Build configuration list for PBXNativeTarget "捐血趣" */ = {
+		A6A337021E754ACB00B842E6 /* Build configuration list for PBXNativeTarget "一起捐血趣" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A6A337031E754ACB00B842E6 /* Debug */,

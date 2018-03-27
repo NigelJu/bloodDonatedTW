@@ -39,23 +39,67 @@ class BloodStoreViewController: UIViewController {
         }
     }
     
+    @IBAction func refreshButtonDidSelect(_ sender: Any) {
+        updateBloodInfo(shouldShowTips: true)
+    }
+    
+    // MARK:- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activityIndicatorView.startAnimating()
         tableView.rowHeight = 130
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
         
-        // 爬資料
-        DispatchQueue.global(qos: .default).async {
-            self.parseBloodInfo()
-            self.parseBloodUpdateTime()
-        }
+       
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        updateBloodInfo(shouldShowTips: false)
     }
 }
 
 // MARK:- fileprivate Function
 fileprivate extension BloodStoreViewController {
+    
+    
+    func updateBloodInfo(shouldShowTips: Bool) {
+        self.activityIndicatorView.startAnimating()
+        
+        // 取得本機儲存的最後更新日期, 如果與當天相同則不需要爬資料
+        // 如果沒本機資料或是與當天日期不同則爬資料
+        let today = DateFormatterManager.shareInstance.stringFromDateFormate(date: Date())
+        if let lastUpdateTime = UserDefualtManager.shareInstance.lastUpdateTime(),
+            today == lastUpdateTime {
+            
+            // 如果是主動更新, 則會提示不需更新
+            if shouldShowTips {
+                // 提示已為最新資料
+                UIAlertController.alert(title: "提示", message: "已為最新資料, 不需要更新")
+                    .otherHandle(alertAction: nil)
+                    .show(currentVC: self)
+            }
+            self.activityIndicatorView.stopAnimating()
+            
+        }else {
+            
+           parseInfo()
+            
+        }
+        
+        
+        
+
+    }
+    
+    func parseInfo() {
+        DispatchQueue.global(qos: .default).async {
+            self.parseBloodInfo()
+            self.parseBloodUpdateTime()
+        }
+    }
+    
     
     func parseBloodUpdateTime() {
         guard let url = URL(string: html),
@@ -66,15 +110,20 @@ fileprivate extension BloodStoreViewController {
             else { return }
         
         let trimUpdateTime = updateTime.replacingOccurrences(of: "\r\n", with: "").replacingOccurrences(of: " ", with: "")
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "最新更新時間：yyyy年MM月dd日HH時mm分"
-        let oriDate = trimUpdateTime
-        if let date = dateFormatter.date(from: oriDate) {
-            dateFormatter.dateFormat = "最後更新: yyyy-MM-dd"
-            self.lastUpdateTime = dateFormatter.string(from: date)
+
+        
+        if let parseDate = DateFormatterManager.shareInstance.dateFromFormate(date: trimUpdateTime, style: "最新更新時間：yyyy年MM月dd日HH時mm分") {
+            
+            let updateTime = DateFormatterManager.shareInstance.stringFromDateFormate(date: parseDate)
+            
+            self.lastUpdateTime = "最後更新:" + updateTime
+            
+            UserDefualtManager.shareInstance.updateLastUpdateTime(time: updateTime)
+            
         }else {
             self.lastUpdateTime = "更新失敗..."
         }
+
     }
     
     func parseBloodInfo() {

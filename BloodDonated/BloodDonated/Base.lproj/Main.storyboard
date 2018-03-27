@@ -14,7 +14,7 @@
         <!--更新中...-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="BloodStoreViewController" customModule="捐血趣" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BloodStoreViewController" customModule="一起捐血趣" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,7 +67,7 @@
                                 <rect key="frame" x="0.0" y="94" width="375" height="524"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="bloodStoreCell" id="XZ4-GM-SDX" customClass="BloodStoreCellTableViewCell" customModule="捐血趣" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="bloodStoreCell" id="XZ4-GM-SDX" customClass="BloodStoreCellTableViewCell" customModule="一起捐血趣" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XZ4-GM-SDX" id="nmb-DJ-EhM">
@@ -131,7 +131,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="5UW-Ct-wbi"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="dTj-Sd-BnR">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="dTj-Sd-BnR">
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
                                 <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
@@ -150,9 +150,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="d4s-U7-Aj0"/>
                     </view>
-                    <navigationItem key="navigationItem" title="更新中..." id="g2i-o5-Ef9"/>
+                    <navigationItem key="navigationItem" title="更新中..." id="g2i-o5-Ef9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="wnA-br-czC">
+                            <connections>
+                                <action selector="refreshButtonDidSelect:" destination="BYZ-38-t0r" id="0AH-4b-lDz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="activityIndicatorView" destination="dTj-Sd-BnR" id="Bsv-1y-o8r"/>
+                        <outlet property="activityIndicatorView" destination="dTj-Sd-BnR" id="m9D-a3-olX"/>
                         <outlet property="tableView" destination="mXm-Hr-w3P" id="7Ct-84-LrR"/>
                     </connections>
                 </viewController>
@@ -163,7 +169,7 @@
         <!--Storage Tips View Controller-->
         <scene sceneID="Blm-PF-oDo">
             <objects>
-                <viewController id="DPY-h8-1d3" customClass="StorageTipsViewController" customModule="捐血趣" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="DPY-h8-1d3" customClass="StorageTipsViewController" customModule="一起捐血趣" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0jS-k1-kwb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -330,7 +336,7 @@
         <!--附近捐血站-->
         <scene sceneID="8CC-RH-UfY">
             <objects>
-                <viewController id="G57-ZM-eRI" customClass="NearInfoViewController" customModule="捐血趣" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="G57-ZM-eRI" customClass="NearInfoViewController" customModule="一起捐血趣" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HmL-IQ-M5x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -411,7 +417,7 @@
         <!--Select Area View Controller-->
         <scene sceneID="OV4-W3-w2E">
             <objects>
-                <viewController id="pbY-zP-iq4" customClass="SelectAreaViewController" customModule="捐血趣" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pbY-zP-iq4" customClass="SelectAreaViewController" customModule="一起捐血趣" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3PC-cw-x9p">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -486,7 +492,7 @@
         <!--Near Info Table View Controller-->
         <scene sceneID="EpE-82-POn">
             <objects>
-                <viewController id="mRE-QT-2qp" customClass="NearInfoTableViewController" customModule="捐血趣" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mRE-QT-2qp" customClass="NearInfoTableViewController" customModule="一起捐血趣" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oXE-D7-qC1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="286"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -509,7 +515,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="separatorColor" red="0.880730927" green="0.87520748380000002" blue="0.87846136090000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="contentCell" rowHeight="140" id="Sxm-ub-suj" customClass="NearBloodStationInfoTableViewCell" customModule="捐血趣" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="contentCell" rowHeight="140" id="Sxm-ub-suj" customClass="NearBloodStationInfoTableViewCell" customModule="一起捐血趣" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="60" width="375" height="140"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sxm-ub-suj" id="JYe-3M-AeU">
@@ -517,16 +523,16 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="UcF-p5-Eq0">
-                                                            <rect key="frame" x="20" y="5" width="262" height="134.5"/>
+                                                            <rect key="frame" x="20" y="5" width="317" height="134.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="捐血站名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2O4-z3-dRv">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="262" height="66"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="317" height="66"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="距離" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CA6-Il-Bfg">
-                                                                    <rect key="frame" x="0.0" y="69" width="262" height="65.5"/>
+                                                                    <rect key="frame" x="0.0" y="69" width="317" height="65.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -583,7 +589,7 @@
         <!--設定-->
         <scene sceneID="GxR-8G-x3t">
             <objects>
-                <tableViewController id="CNK-xn-Yw5" customClass="SettingTableViewController" customModule="捐血趣" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="CNK-xn-Yw5" customClass="SettingTableViewController" customModule="一起捐血趣" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="CRq-Zn-XAe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -647,13 +653,13 @@
         <!--詳細資訊-->
         <scene sceneID="Smd-UD-YGm">
             <objects>
-                <viewController id="Hzb-uq-1Ng" customClass="DetailNearInfoViewController" customModule="捐血趣" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Hzb-uq-1Ng" customClass="DetailNearInfoViewController" customModule="一起捐血趣" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HKa-EO-5MS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="AyK-mM-lJJ">
-                                <rect key="frame" x="0.0" y="74" width="0.0" height="175.5"/>
+                                <rect key="frame" x="20" y="74" width="335" height="278"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="站名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1in-LG-SIK">
                                         <rect key="frame" x="0.0" y="0.0" width="53" height="31.5"/>
@@ -662,7 +668,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFt-JN-ESw">
-                                        <rect key="frame" x="0.0" y="33.5" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="33.5" width="0.0" height="20.5"/>
                                         <string key="text">捐血站名稱: 字太多要換行換
 行換行換行換行換行換行</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -670,49 +676,49 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Lc-Vy-mTR">
-                                        <rect key="frame" x="0.0" y="35.5" width="53" height="31.5"/>
+                                        <rect key="frame" x="0.0" y="56" width="53" height="31.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址: 字太多換行字太多換行字太多換行字太多換行字太多換行字太多換行字太多換行字太多換行字太多換行字太多換行字太多換行" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gyw-bq-5DB">
-                                        <rect key="frame" x="0.0" y="69" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="89.5" width="0.0" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="營業時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwi-pd-jJ9">
-                                        <rect key="frame" x="0.0" y="71" width="105.5" height="31.5"/>
+                                        <rect key="frame" x="0.0" y="112" width="105.5" height="31.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="營業時間:字太多換行字太多換行字太多換行字太多換行字太多換行字太多換行字太多換行" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duk-eq-Usd">
-                                        <rect key="frame" x="0.0" y="104.5" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="145.5" width="0.0" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電話" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ru-AP-3Dy">
-                                        <rect key="frame" x="0.0" y="106.5" width="53" height="31.5"/>
+                                        <rect key="frame" x="0.0" y="168" width="53" height="31.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電話:字太多換行字太多換行字太多換行字太多換行字太多換行字太多換行字太多換行" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1S-BY-KJs">
-                                        <rect key="frame" x="0.0" y="140" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="201.5" width="0.0" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="備註" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SS0-In-dSE">
-                                        <rect key="frame" x="0.0" y="142" width="53" height="31.5"/>
+                                        <rect key="frame" x="0.0" y="224" width="53" height="31.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="備註:字太多換行字太多換行字太多換行字太多換行字太多換行字太多換行字太多換行" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w95-Nj-jea">
-                                        <rect key="frame" x="0.0" y="175.5" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="257.5" width="0.0" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -720,10 +726,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="jBv-6m-gu0">
-                                <rect key="frame" x="0.0" y="538" width="0.0" height="80"/>
+                                <rect key="frame" x="0.0" y="538" width="375" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nyl-40-ulN">
-                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="80"/>
                                         <color key="backgroundColor" red="0.72156862745098038" green="0.70588235294117641" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="撥號">
                                             <color key="titleColor" red="1" green="0.9882352941176471" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -733,7 +739,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DI4-34-KUC">
-                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="80"/>
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="80"/>
                                         <color key="backgroundColor" red="1" green="0.20000000000000001" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="導航">
                                             <color key="titleColor" red="1" green="0.9882352941176471" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -778,7 +784,7 @@
         <image name="BloodFull" width="90" height="95"/>
         <image name="BloodLow" width="77" height="81"/>
         <image name="BloodMed" width="60" height="89"/>
-        <image name="Location" width="7" height="11"/>
+        <image name="Location" width="15" height="22"/>
         <image name="Setting" width="21" height="21"/>
         <image name="center" width="20" height="20"/>
         <image name="search" width="20" height="20"/>
