@@ -30,23 +30,23 @@ class UserDefualtManager {
     
     // 取得本機捐血站資料
     func bloodInfos() -> [BloodData?]? {
-        guard let dict = UserDefaults.standard.object(forKey: BLOOD_INFOS) as? [Dictionary<String, Any?>] else { return nil }
+        guard let data = UserDefaults.standard.object(forKey: BLOOD_INFOS) as? Data else { return nil }
    
-        return [BloodData](json: dict)
+        return [BloodData](data: data)
     }
     
     
     // 更新捐血站資料
     @discardableResult func updateBloodInfos(bloodInfos: [BloodData?]) -> Bool {
        
-        if let array = bloodInfos.array {
-            
-            UserDefaults.standard.set(array, forKey: BLOOD_INFOS)
-            
-            return UserDefaults.standard.synchronize()
-        }
+       
         
-        return false
+        UserDefaults.standard.set(bloodInfos.data(), forKey: BLOOD_INFOS)
+        
+        return UserDefaults.standard.synchronize()
+        
+        
+//        return false
     }
     
 }

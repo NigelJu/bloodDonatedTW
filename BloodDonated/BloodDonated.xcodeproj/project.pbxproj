@@ -22,11 +22,10 @@
 		A642E9431F3244190002407D /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642E9421F3244190002407D /* SettingTableViewController.swift */; };
 		A649E35D206A18D9000E3E46 /* UserDefualtManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A649E35C206A18D9000E3E46 /* UserDefualtManager.swift */; };
 		A649E35F206A30D2000E3E46 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A649E35E206A30D2000E3E46 /* DateFormatterManager.swift */; };
-		A6581F0B206CDEFA00C266CF /* Encodable+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6581F0A206CDEF900C266CF /* Encodable+Extenstion.swift */; };
+		A6581F0D206CE12400C266CF /* JsonCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6581F0C206CE12400C266CF /* JsonCodable.swift */; };
 		A65AA0C6205AD84A00B8CC61 /* Ji.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65AA0C2205AD84A00B8CC61 /* Ji.swift */; };
 		A65AA0C7205AD84A00B8CC61 /* JiNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65AA0C3205AD84A00B8CC61 /* JiNode.swift */; };
 		A65AA0C8205AD84A00B8CC61 /* JiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65AA0C5205AD84A00B8CC61 /* JiHelper.swift */; };
-		A663156F205ACBE40006AE34 /* JsonCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A663156E205ACBE40006AE34 /* JsonCodable.swift */; };
 		A6631573205AD7520006AE34 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A6631571205AD7510006AE34 /* libxml2.tbd */; };
 		A6631574205AD7520006AE34 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A6631572205AD7510006AE34 /* libxml2.2.tbd */; };
 		A665286A203E7B8100A791B2 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6652869203E7B8100A791B2 /* ViewController+Extension.swift */; };
@@ -71,12 +70,11 @@
 		A642E9421F3244190002407D /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		A649E35C206A18D9000E3E46 /* UserDefualtManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefualtManager.swift; sourceTree = "<group>"; };
 		A649E35E206A30D2000E3E46 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
-		A6581F0A206CDEF900C266CF /* Encodable+Extenstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+Extenstion.swift"; sourceTree = "<group>"; };
+		A6581F0C206CE12400C266CF /* JsonCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonCodable.swift; sourceTree = "<group>"; };
 		A65AA0C2205AD84A00B8CC61 /* Ji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ji.swift; sourceTree = "<group>"; };
 		A65AA0C3205AD84A00B8CC61 /* JiNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JiNode.swift; sourceTree = "<group>"; };
 		A65AA0C4205AD84A00B8CC61 /* TestParse-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestParse-Bridging-Header.h"; sourceTree = "<group>"; };
 		A65AA0C5205AD84A00B8CC61 /* JiHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JiHelper.swift; sourceTree = "<group>"; };
-		A663156E205ACBE40006AE34 /* JsonCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonCodable.swift; sourceTree = "<group>"; };
 		A6631571205AD7510006AE34 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		A6631572205AD7510006AE34 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		A6652869203E7B8100A791B2 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -203,8 +201,7 @@
 			children = (
 				A6652869203E7B8100A791B2 /* ViewController+Extension.swift */,
 				A6EC126A204537FF006BB722 /* UIAlertController+Extension.swift */,
-				A6581F0A206CDEF900C266CF /* Encodable+Extenstion.swift */,
-				A663156E205ACBE40006AE34 /* JsonCodable.swift */,
+				A6581F0C206CE12400C266CF /* JsonCodable.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -393,6 +390,7 @@
 			files = (
 				A649E35F206A30D2000E3E46 /* DateFormatterManager.swift in Sources */,
 				A6EC128D2047FF4E006BB722 /* NearBloodStationInfoTableViewCell.swift in Sources */,
+				A6581F0D206CE12400C266CF /* JsonCodable.swift in Sources */,
 				A642E9431F3244190002407D /* SettingTableViewController.swift in Sources */,
 				A65AA0C6205AD84A00B8CC61 /* Ji.swift in Sources */,
 				A6A337081E754F1700B842E6 /* AppDelegate.swift in Sources */,
@@ -410,9 +408,7 @@
 				A69F2F3120555F3C0099DE65 /* Reachability.m in Sources */,
 				A649E35D206A18D9000E3E46 /* UserDefualtManager.swift in Sources */,
 				A665286A203E7B8100A791B2 /* ViewController+Extension.swift in Sources */,
-				A663156F205ACBE40006AE34 /* JsonCodable.swift in Sources */,
 				A6EC126B204537FF006BB722 /* UIAlertController+Extension.swift in Sources */,
-				A6581F0B206CDEFA00C266CF /* Encodable+Extenstion.swift in Sources */,
 				A642E92E1F30D0C40002407D /* LocationInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
