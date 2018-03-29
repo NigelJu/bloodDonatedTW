@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BloodData {
+class BloodData: JsonCodable {
     
     var typeA: BloodStorage?
     var typeB: BloodStorage?
@@ -17,7 +17,9 @@ class BloodData {
     var name = String()
     
 }
-enum BloodStorage: String {
+
+// MARK:- BloodStorage
+enum BloodStorage: String, Codable {
     case medium = "images/StorageIcon002.png"      // 庫存量4到7日
     case low = "images/StorageIcon001.png"        // 庫存量4日以下
     case full = "images/StorageIcon003.png"         // 庫存量7日以上

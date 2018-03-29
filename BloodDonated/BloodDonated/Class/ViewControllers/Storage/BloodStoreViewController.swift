@@ -28,7 +28,7 @@ class BloodStoreViewController: UIViewController {
     fileprivate let html = "http://www.blood.org.tw/Internet/main/index.aspx"
     
     
-    fileprivate var lastUpdateTime: String? {
+    fileprivate var lastUpdateTime = String() {
         didSet {
             // 撈完資料, 重整UI
             DispatchQueue.main.async {
@@ -71,6 +71,7 @@ fileprivate extension BloodStoreViewController {
         // 如果沒本機資料或是與當天日期不同則爬資料
         let today = DateFormatterManager.shareInstance.stringFromDateFormate(date: Date())
         if let lastUpdateTime = UserDefualtManager.shareInstance.lastUpdateTime(),
+            let infos = UserDefualtManager.shareInstance.bloodInfos(),
             today == lastUpdateTime {
             
             // 如果是主動更新, 則會提示不需更新
@@ -82,10 +83,11 @@ fileprivate extension BloodStoreViewController {
             }
             self.activityIndicatorView.stopAnimating()
             
+            bloodInfos = infos
+            setUpdateTimeTitle(updateTime: lastUpdateTime)
+            
         }else {
-            
            parseInfo()
-            
         }
         
         
@@ -93,9 +95,17 @@ fileprivate extension BloodStoreViewController {
 
     }
     
+    func setUpdateTimeTitle(updateTime: String) {
+        lastUpdateTime = "最後更新:" + updateTime
+    }
+    
     func parseInfo() {
         DispatchQueue.global(qos: .default).async {
+            // 撈捐血資料
             self.parseBloodInfo()
+            // 把捐血資料儲存至本機
+            UserDefualtManager.shareInstance.updateBloodInfos(bloodInfos: self.bloodInfos)
+            // 撈捐血站的最後更新時間
             self.parseBloodUpdateTime()
         }
     }
@@ -116,7 +126,7 @@ fileprivate extension BloodStoreViewController {
             
             let updateTime = DateFormatterManager.shareInstance.stringFromDateFormate(date: parseDate)
             
-            self.lastUpdateTime = "最後更新:" + updateTime
+            self.setUpdateTimeTitle(updateTime: updateTime)
             
             UserDefualtManager.shareInstance.updateLastUpdateTime(time: updateTime)
             
